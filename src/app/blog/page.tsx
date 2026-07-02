@@ -19,7 +19,7 @@ export const metadata: Metadata = createMetadata({
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-24 md:py-32">
+      <section className="bg-forest-600 py-24 md:py-32">
         <Container>
           <Breadcrumbs items={[{ label: "Blog" }]} />
           <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold text-white md:text-5xl">
