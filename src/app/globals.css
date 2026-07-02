@@ -173,4 +173,10 @@
   .eyebrow {
     @apply font-sans text-xs font-semibold uppercase tracking-[0.18em] text-forest-600 dark:text-fresh-400;
   }
+  .section-heading {
+    @apply font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-[2.75rem] md:leading-[1.15];
+  }
+  .surface-card {
+    @apply rounded-2xl border border-forest-200/80 bg-white shadow-[0_8px_24px_rgba(20,83,45,0.07)];
+  }
 }

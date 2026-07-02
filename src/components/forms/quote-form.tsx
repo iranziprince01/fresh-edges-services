@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { Loader2, CheckCircle2, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,8 +43,16 @@ export function QuoteForm({ className }: { className?: string }) {
   async function onSubmit(data: BookingFormValues) {
     setStatus("loading");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.info("Booking request ready for backend:", data);
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
       setStatus("success");
       form.reset();
     } catch {
@@ -83,11 +91,18 @@ export function QuoteForm({ className }: { className?: string }) {
       noValidate
     >
       <div className="grid gap-6 sm:grid-cols-2">
-        <div className="space-y-2 sm:col-span-2">
+        <div className="space-y-2">
           <Label htmlFor="fullName">Full Name *</Label>
           <Input id="fullName" {...form.register("fullName")} aria-invalid={!!form.formState.errors.fullName} />
           {form.formState.errors.fullName && (
             <p className="text-sm text-destructive" role="alert">{form.formState.errors.fullName.message}</p>
+          )}
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email Address *</Label>
+          <Input id="email" type="email" {...form.register("email")} aria-invalid={!!form.formState.errors.email} />
+          {form.formState.errors.email && (
+            <p className="text-sm text-destructive" role="alert">{form.formState.errors.email.message}</p>
           )}
         </div>
         <div className="space-y-2">
@@ -98,26 +113,19 @@ export function QuoteForm({ className }: { className?: string }) {
           )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email Address *</Label>
-          <Input id="email" type="email" {...form.register("email")} aria-invalid={!!form.formState.errors.email} />
-          {form.formState.errors.email && (
-            <p className="text-sm text-destructive" role="alert">{form.formState.errors.email.message}</p>
-          )}
-        </div>
-        <div className="space-y-2 sm:col-span-2">
           <Label htmlFor="propertyAddress">Property Address *</Label>
           <Input id="propertyAddress" {...form.register("propertyAddress")} aria-invalid={!!form.formState.errors.propertyAddress} />
           {form.formState.errors.propertyAddress && (
             <p className="text-sm text-destructive" role="alert">{form.formState.errors.propertyAddress.message}</p>
           )}
         </div>
-        <div className="space-y-2 sm:col-span-2">
+        <div className="space-y-2">
           <Label>Type of Service Needed *</Label>
           <Select
             value={form.watch("serviceType")}
             onValueChange={(v) => v && form.setValue("serviceType", v, { shouldValidate: true })}
           >
-            <SelectTrigger aria-invalid={!!form.formState.errors.serviceType}>
+            <SelectTrigger className="w-full" aria-invalid={!!form.formState.errors.serviceType}>
               <SelectValue placeholder="Select a service" />
             </SelectTrigger>
             <SelectContent>
@@ -145,7 +153,7 @@ export function QuoteForm({ className }: { className?: string }) {
             value={form.watch("preferredTime")}
             onValueChange={(v) => v && form.setValue("preferredTime", v, { shouldValidate: true })}
           >
-            <SelectTrigger aria-invalid={!!form.formState.errors.preferredTime}>
+            <SelectTrigger className="w-full" aria-invalid={!!form.formState.errors.preferredTime}>
               <SelectValue placeholder="Select a time" />
             </SelectTrigger>
             <SelectContent>
@@ -158,7 +166,7 @@ export function QuoteForm({ className }: { className?: string }) {
             <p className="text-sm text-destructive" role="alert">{form.formState.errors.preferredTime.message}</p>
           )}
         </div>
-        <div className="space-y-2 sm:col-span-2">
+        <div className="space-y-2">
           <Label htmlFor="additionalDetails">Additional Details</Label>
           <Textarea
             id="additionalDetails"
@@ -179,7 +187,7 @@ export function QuoteForm({ className }: { className?: string }) {
         type="submit"
         size="lg"
         disabled={status === "loading"}
-        className="w-full bg-forest-600 hover:bg-forest-700 sm:w-auto"
+        className="h-12 w-full bg-forest-600 px-8 shadow-sm shadow-forest-600/20 transition-[background-color,box-shadow] hover:bg-forest-700 hover:shadow-md hover:shadow-forest-600/25 sm:w-auto"
       >
         {status === "loading" ? (
           <>
@@ -187,7 +195,10 @@ export function QuoteForm({ className }: { className?: string }) {
             Submitting...
           </>
         ) : (
-          "Request Service"
+          <>
+            Request Service
+            <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
+          </>
         )}
       </Button>
     </form>

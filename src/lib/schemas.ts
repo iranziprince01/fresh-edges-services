@@ -1,4 +1,4 @@
-import { siteConfig } from "./site";
+import { siteConfig, brandedLogoUrl } from "./site";
 import { images } from "./images";
 
 export function localBusinessSchema() {
@@ -12,7 +12,7 @@ export function localBusinessSchema() {
     telephone: siteConfig.phone,
     email: siteConfig.email,
     image: images.og,
-    logo: `${siteConfig.url}${siteConfig.assets.logo}`,
+    logo: `${siteConfig.url}${brandedLogoUrl()}`,
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
@@ -156,7 +156,7 @@ export function articleSchema(post: {
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}${siteConfig.assets.logo}`,
+        url: `${siteConfig.url}${brandedLogoUrl()}`,
       },
     },
     mainEntityOfPage: `${siteConfig.url}/blog/${post.slug}`,

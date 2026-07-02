@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { BookServiceButton } from "@/components/layout/book-service-button";
 import { CtaSection } from "@/components/sections/cta-section";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
-import { Button } from "@/components/ui/button";
 import {
   coreValues,
   mission,
@@ -29,40 +28,32 @@ export const metadata: Metadata = createMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-20 md:py-28">
+      <section className="bg-forest-600 py-24 md:py-32">
         <Container>
           <Breadcrumbs items={[{ label: "About" }]} />
           <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.15]">
-            Built On Service. Driven By Excellence.
+            Built On Service, Driven By Excellence.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-            Fresh Edges Services Ltd was founded with a simple purpose: to make property care
-            easier, more reliable, and more professional for homes and businesses across
-            Alberta.
-          </p>
         </Container>
       </section>
 
       <Section>
-        <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image
-                src={images.hero}
-                alt="Fresh Edges professional team"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div>
+        <Container className="grid items-center gap-16 overflow-visible lg:grid-cols-[1fr_min(48%,500px)] lg:items-stretch lg:gap-16 xl:gap-20">
+          <div className="flex flex-col justify-center lg:justify-start">
+            <div className="max-w-lg">
               <SectionHeader
                 eyebrow="Our story"
                 title="One trusted team for complete property care"
                 align="left"
-                className="mb-0"
+                spacing="tight"
+                className="max-w-none"
               />
-              <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
+              <div className="mt-14 space-y-3.5 text-base leading-[1.75] text-muted-foreground md:space-y-4">
+                <p className="text-lg font-bold italic leading-relaxed text-forest-600 md:text-xl md:leading-relaxed">
+                  &ldquo;{siteConfig.name} was founded with a simple purpose: to make property care
+                  easier, more reliable, and more professional for homes and businesses across
+                  Alberta.&rdquo;
+                </p>
                 <p>
                   Managing a property often means working with multiple contractors for
                   cleaning, landscaping, maintenance, snow removal, and facility support. We
@@ -81,10 +72,31 @@ export default function AboutPage() {
                 </p>
                 <p>
                   At Fresh Edges, we believe trust is earned through consistency,
-                  professionalism, and delivering results that exceed expectations. Every
-                  client matters. Every project matters. And every service we provide reflects
-                  our commitment to excellence.
+                  professionalism, and delivering results that exceed expectations.{" "}
+                  <span className="box-decoration-clone bg-forest-50 font-bold text-forest-600">
+                    Every client matters. Every project counts. And every service we provide
+                    reflects our commitment to excellence.
+                  </span>
                 </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[340px] self-stretch overflow-visible lg:mx-0 lg:max-w-none">
+            <div className="relative aspect-[3/4] min-h-[320px] w-full overflow-visible lg:h-full lg:min-h-0 lg:aspect-auto">
+              <div
+                className="absolute top-[5%] left-[18%] -right-[3%] z-0 h-[90%] rounded-[1.75rem] bg-fresh-400 shadow-[0_20px_48px_rgba(115,220,100,0.45)] lg:rounded-[2rem]"
+                aria-hidden
+              />
+              <div className="relative z-10 h-full overflow-hidden rounded-[1.75rem] ring-2 ring-forest-200/80 lg:rounded-[2rem]">
+                <Image
+                  src={images.story}
+                  alt="Fresh Edges team delivering professional property care"
+                  fill
+                  priority
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 340px, 500px"
+                />
               </div>
             </div>
           </div>
@@ -93,25 +105,51 @@ export default function AboutPage() {
 
       <Section variant="muted">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <SectionHeader
-                eyebrow="Our mission"
-                title="Dependable property care, lasting relationships"
-                align="left"
-                className="mb-0"
-              />
-              <p className="mt-6 leading-relaxed text-muted-foreground">{mission}</p>
-            </div>
-            <div>
-              <SectionHeader
-                eyebrow="Our vision"
-                title="Leading property maintenance in Alberta"
-                align="left"
-                className="mb-0"
-              />
-              <p className="mt-6 leading-relaxed text-muted-foreground">{vision}</p>
-            </div>
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
+            <article className="group flex flex-col overflow-hidden rounded-[1.75rem] border border-forest-200/80 bg-white shadow-[0_16px_40px_rgba(20,83,45,0.08)] transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(20,83,45,0.12)]">
+              <div className="relative overflow-hidden bg-forest-600 px-8 py-10 md:px-10 md:py-12">
+                <div
+                  className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-fresh-400/20 blur-2xl"
+                  aria-hidden
+                />
+                <div
+                  className="absolute right-8 bottom-0 h-px w-16 bg-fresh-400/80"
+                  aria-hidden
+                />
+                <div className="relative">
+                    <h3 className="font-heading text-2xl font-bold tracking-[0.12em] text-white uppercase md:text-[1.75rem] md:leading-tight">
+                      Our Mission
+                    </h3>
+                  </div>
+              </div>
+              <div className="flex flex-1 flex-col border-t border-forest-100 bg-white px-8 py-8 md:px-10 md:py-10">
+                <p className="text-base leading-[1.8] text-muted-foreground">{mission}</p>
+              </div>
+            </article>
+
+            <article className="group flex flex-col overflow-hidden rounded-[1.75rem] border border-forest-200/80 bg-white shadow-[0_16px_40px_rgba(20,83,45,0.08)] transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(20,83,45,0.12)]">
+              <div className="relative overflow-hidden bg-gradient-to-br from-forest-700 via-forest-600 to-forest-600 px-8 py-10 md:px-10 md:py-12">
+                <div
+                  className="absolute -bottom-12 -left-8 h-36 w-36 rounded-full bg-fresh-400/15 blur-2xl"
+                  aria-hidden
+                />
+                <div
+                  className="absolute right-8 bottom-0 h-px w-16 bg-fresh-400/80"
+                  aria-hidden
+                />
+                <div className="relative">
+                    <h3 className="font-heading text-2xl font-bold tracking-[0.12em] text-white uppercase md:text-[1.75rem] md:leading-tight">
+                      Our Vision
+                    </h3>
+                  </div>
+              </div>
+              <div className="flex flex-1 flex-col border-t border-forest-100 bg-forest-50/60 px-8 py-8 md:px-10 md:py-10">
+                <p className="text-base leading-[1.8] text-muted-foreground">{vision}</p>
+              </div>
+            </article>
+          </div>
+          <div className="mt-14 flex justify-center">
+            <BookServiceButton className="h-12 px-8 text-base" />
           </div>
         </Container>
       </Section>
@@ -122,31 +160,66 @@ export default function AboutPage() {
             title="Our core values"
             description="The principles that guide how we serve every client, on every project, every day."
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {coreValues.map((value) => (
-              <div key={value.title} className="rounded-2xl border border-border/80 p-8">
-                <h3 className="font-heading text-lg font-semibold">{value.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {value.description}
-                </p>
-              </div>
+          <div className="grid items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {coreValues.map((value, index) => (
+              <article
+                key={value.title}
+                className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-forest-200/80 bg-white shadow-[0_14px_36px_rgba(20,83,45,0.08)] transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_22px_48px_rgba(20,83,45,0.12)]"
+              >
+                <div
+                  className={`relative overflow-hidden px-7 py-7 md:px-8 md:py-8 ${
+                    index % 2 === 0
+                      ? "bg-forest-600"
+                      : "bg-gradient-to-br from-forest-700 via-forest-600 to-forest-600"
+                  }`}
+                >
+                  <div
+                    className="absolute -top-8 -right-8 h-24 w-24 rounded-full bg-fresh-400/20 blur-2xl"
+                    aria-hidden
+                  />
+                  <div
+                    className="absolute right-7 bottom-0 h-px w-12 bg-fresh-400/80 md:right-8"
+                    aria-hidden
+                  />
+                  <h3 className="relative font-heading text-xl font-bold tracking-tight text-fresh-300 md:text-2xl">
+                    {value.title}
+                  </h3>
+                </div>
+                <div className="flex flex-1 border-t border-forest-100 bg-forest-50/70 px-7 py-7 md:px-8 md:py-8">
+                  <p className="text-base leading-[1.75] text-foreground/80">
+                    {value.description}
+                  </p>
+                </div>
+              </article>
             ))}
+            <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-forest-200/80 bg-white shadow-[0_14px_36px_rgba(20,83,45,0.08)] transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_22px_48px_rgba(20,83,45,0.12)]">
+              <div className="relative min-h-0 flex-1 overflow-hidden">
+                <Image
+                  src={images.coreValue}
+                  alt="Fresh Edges team demonstrating our core values in action"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                />
+              </div>
+            </article>
           </div>
         </Container>
       </Section>
 
       <Section variant="muted">
         <Container>
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <SectionHeader
                 eyebrow="Service areas"
                 title="Serving the greater Edmonton region"
                 description="From downtown commercial properties to suburban homes, we deliver the same consistent quality across Alberta's capital region."
                 align="left"
-                className="mb-0"
+                spacing="tight"
+                className="max-w-none"
               />
-              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {siteConfig.serviceAreas.map((area) => (
                   <li key={area} className="flex items-center gap-2.5 text-sm">
                     <MapPin className="h-4 w-4 shrink-0 text-forest-600 dark:text-fresh-400" aria-hidden />
@@ -154,9 +227,9 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <Button asChild className="mt-10 h-11 bg-forest-600 hover:bg-forest-700">
-                <Link href="/service-areas">View service areas</Link>
-              </Button>
+              <div className="mt-14">
+                <BookServiceButton className="h-11 px-8" />
+              </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
@@ -179,17 +252,12 @@ export default function AboutPage() {
             description="Straight answers about our services, coverage, and how to get started."
           />
           <div className="mx-auto max-w-3xl">
-            <FaqAccordion items={faqs.slice(0, 5)} />
-          </div>
-          <div className="mt-10 text-center">
-            <Button asChild variant="link" className="text-forest-600">
-              <Link href="/faq">View all questions</Link>
-            </Button>
+            <FaqAccordion items={faqs} />
           </div>
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection variant="muted" />
     </>
   );
 }

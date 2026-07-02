@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import { createMetadata } from "@/lib/seo";
-import { services } from "@/data/services";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
-import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { ServiceCard, ServiceCardGrid } from "@/components/sections/service-card";
+import { ServicesPageCard } from "@/components/sections/services-page-card";
 import { CtaSection } from "@/components/sections/cta-section";
-import { Button } from "@/components/ui/button";
+import { serviceListingCards } from "@/data/services";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = createMetadata({
   title: "Property Services Edmonton",
   description:
-    "Explore commercial cleaning, residential cleaning, snow removal, landscaping, pressure washing, and property maintenance services in Edmonton, Alberta.",
+    "Explore commercial cleaning, residential cleaning, snow removal, landscaping, pressure washing, property maintenance, and post construction cleanup in Edmonton, Alberta.",
   path: "/services",
   keywords: ["Property Services Edmonton", "Cleaning Company Edmonton"],
 });
@@ -21,43 +20,43 @@ export const metadata: Metadata = createMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-20 md:py-28">
-        <Container>
-          <Breadcrumbs items={[{ label: "Services" }]} />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src={images.servicesBanner}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/90 via-forest-600/90 to-forest-700/85" />
+        </div>
+
+        <Container className="relative">
+          <Breadcrumbs items={[{ label: "Services" }]} variant="light" />
+          <h1 className="max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.15]">
             Complete Property Solutions For Homes And Businesses
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
             Fresh Edges Services offers year-round professional property care solutions designed
             to simplify property management and maintain high-quality spaces.
           </p>
-          <Button asChild size="lg" className="mt-8 h-12 bg-white text-forest-900 hover:bg-white/90">
-            <Link href="/quote">Book a Service</Link>
-          </Button>
         </Container>
       </section>
 
       <Section>
         <Container>
-          <SectionHeader
-            title="All Services"
-            description="Every service is delivered with the same commitment to quality, reliability, and local expertise."
-          />
-          <ServiceCardGrid>
-            {services.map((service) => (
-              <ServiceCard
-                key={service.slug}
-                title={service.shortTitle}
-                description={service.description}
-                href={`/services/${service.slug}`}
-                icon={service.icon}
-              />
+          <div className="grid items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {serviceListingCards.map((card) => (
+              <ServicesPageCard key={card.slug} card={card} />
             ))}
-          </ServiceCardGrid>
+          </div>
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection variant="muted" />
     </>
   );
 }

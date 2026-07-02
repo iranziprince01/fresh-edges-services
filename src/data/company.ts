@@ -1,3 +1,13 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  Briefcase,
+  GraduationCap,
+  HandCoins,
+  HeartHandshake,
+  UserCheck,
+  UsersRound,
+} from "lucide-react";
+
 export const whyChooseUs = [
   "Professional and dependable team",
   "Flexible service plans tailored to your needs",
@@ -38,14 +48,37 @@ export const coreValues = [
   },
 ] as const;
 
-export const impactContributions = [
-  "Creating employment opportunities for newcomers and immigrant families",
-  "Providing entry-level work opportunities that build Canadian work experience",
-  "Offering workplace training and hands-on professional development",
-  "Supporting economic inclusion through meaningful employment",
-  "Helping individuals gain confidence while integrating into Canadian society",
-  "Building diverse teams that reflect the communities we serve",
-] as const;
+export type ImpactContribution = {
+  text: string;
+  icon: LucideIcon;
+};
+
+export const impactContributions: ImpactContribution[] = [
+  {
+    text: "Creating employment opportunities for newcomers and immigrant families",
+    icon: HeartHandshake,
+  },
+  {
+    text: "Providing entry-level work opportunities that build Canadian work experience",
+    icon: Briefcase,
+  },
+  {
+    text: "Offering workplace training and hands-on professional development",
+    icon: GraduationCap,
+  },
+  {
+    text: "Supporting economic inclusion through meaningful employment",
+    icon: HandCoins,
+  },
+  {
+    text: "Helping individuals gain confidence while integrating into Canadian society",
+    icon: UserCheck,
+  },
+  {
+    text: "Building diverse teams that reflect the communities we serve",
+    icon: UsersRound,
+  },
+];
 
 export const futurePositions = [
   "Cleaning Associates",
@@ -64,7 +97,7 @@ export const whyJoinFreshEdges = [
   "Ongoing training and skill development",
   "Flexible work opportunities",
   "Competitive compensation",
-  "Opportunity to grow alongside an expanding Canadian business",
+  "Grow alongside an expanding Canadian business",
 ] as const;
 
 export const footerPromise =

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { CtaSection } from "@/components/sections/cta-section";
-import { impactContributions } from "@/data/company";
+import { ImpactContributionCards } from "@/components/sections/impact-contribution-cards";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = createMetadata({
   title: "Our Impact",
@@ -17,7 +19,7 @@ export const metadata: Metadata = createMetadata({
 export default function ImpactPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-20 md:py-28">
+      <section className="bg-forest-600 py-24 md:py-32">
         <Container>
           <Breadcrumbs items={[{ label: "Impact" }]} />
           <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.15]">
@@ -31,19 +33,46 @@ export default function ImpactPage() {
       </section>
 
       <Section>
-        <Container>
-          <div className="mx-auto max-w-3xl space-y-6 leading-relaxed text-muted-foreground">
-            <p>
-              As a proudly Canadian company, we are committed to supporting newcomers to Canada
-              by helping create pathways toward employment, work experience, and successful
-              integration into Canadian society.
-            </p>
-            <p>
-              Many talented newcomers arrive with skills and ambition but struggle because they
-              lack Canadian work experience. We understand that challenge. That is why our
-              company intentionally works to help people build meaningful opportunities while
-              contributing to their long-term success.
-            </p>
+        <Container className="grid items-center gap-16 overflow-visible lg:grid-cols-[1fr_min(42%,440px)] lg:gap-20 xl:gap-24">
+          <div className="flex flex-col justify-center">
+            <SectionHeader
+              eyebrow="Newcomer support"
+              title="Creating pathways to meaningful work in Canada"
+              align="left"
+              spacing="tight"
+              className="max-w-none"
+            />
+            <div className="mt-14 space-y-6 leading-relaxed text-muted-foreground">
+              <p>
+                As a proudly Canadian company, we are committed to supporting newcomers to Canada
+                by helping create pathways toward employment, work experience, and successful
+                integration into Canadian society.
+              </p>
+              <p>
+                Many talented newcomers arrive with skills and ambition but struggle because they
+                lack Canadian work experience. We understand that challenge. That is why our
+                company intentionally works to help people build meaningful opportunities while
+                contributing to their long-term success.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[340px] overflow-visible lg:mx-0 lg:max-w-none">
+            <div className="relative aspect-[3/4] min-h-[320px] w-full overflow-visible">
+              <div
+                className="absolute top-[5%] left-[18%] -right-[3%] z-0 h-[90%] rounded-[1.75rem] bg-fresh-400 shadow-[0_20px_48px_rgba(115,220,100,0.45)] lg:rounded-[2rem]"
+                aria-hidden
+              />
+              <div className="relative z-10 h-full overflow-hidden rounded-[1.75rem] ring-2 ring-forest-200/80 lg:rounded-[2rem]">
+                <Image
+                  src={images.cleaner}
+                  alt="Fresh Edges team member supporting community employment opportunities"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 340px, 440px"
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
@@ -52,25 +81,9 @@ export default function ImpactPage() {
         <Container>
           <SectionHeader
             title="How we contribute"
-            description="Our growth should create opportunities for others to grow as well."
+            description="Our growth should create opportunities for others to grow as well. We believe when businesses create opportunity, communities become stronger."
           />
-          <ul className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
-            {impactContributions.map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 rounded-2xl border border-border/80 bg-card p-5 text-sm text-muted-foreground"
-              >
-                <span
-                  className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-forest-600 dark:bg-fresh-400"
-                  aria-hidden
-                />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mx-auto mt-12 max-w-2xl text-center text-base font-medium text-forest-700 dark:text-fresh-400">
-            We believe when businesses create opportunity, communities become stronger.
-          </p>
+          <ImpactContributionCards />
         </Container>
       </Section>
 

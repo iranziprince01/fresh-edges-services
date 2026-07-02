@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
@@ -6,6 +7,7 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { QuoteForm } from "@/components/forms/quote-form";
 import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/lib/site";
+import { images } from "@/lib/images";
 import { Phone, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = createMetadata({
@@ -19,10 +21,23 @@ export const metadata: Metadata = createMetadata({
 export default function QuotePage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-16 md:py-20">
-        <Container>
-          <Breadcrumbs items={[{ label: "Book a Service" }]} />
-          <h1 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src={images.bookingBanner}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/90 via-forest-600/90 to-forest-700/85" />
+        </div>
+
+        <Container className="relative">
+          <Breadcrumbs items={[{ label: "Book a Service" }]} variant="light" />
+          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.15]">
             Request Professional Service In Minutes
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
@@ -36,7 +51,7 @@ export default function QuotePage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <Card className="border-border/80 shadow-none">
+              <Card className="surface-card ring-0">
                 <CardContent className="p-6 md:p-10">
                   <h2 className="font-heading text-xl font-semibold">Booking Form</h2>
                   <div className="mt-6">
@@ -46,7 +61,7 @@ export default function QuotePage() {
               </Card>
             </div>
             <div className="space-y-6">
-              <Card className="border-border/80 shadow-none">
+              <Card className="surface-card ring-0">
                 <CardContent className="p-6">
                   <h2 className="font-heading text-lg font-semibold">Prefer to talk?</h2>
                   <p className="mt-2 text-sm text-muted-foreground">
@@ -64,7 +79,7 @@ export default function QuotePage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-border/80 shadow-none">
+              <Card className="surface-card ring-0">
                 <CardContent className="p-6">
                   <h2 className="font-heading text-lg font-semibold">Business Hours</h2>
                   <ul className="mt-4 space-y-2">

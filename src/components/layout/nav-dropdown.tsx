@@ -4,23 +4,26 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { NavItem } from "@/data/navigation";
+import { navItemClassName } from "@/lib/nav-styles";
 import { cn } from "@/lib/utils";
 
 type NavDropdownProps = {
   item: NavItem;
+  isActive: boolean;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 };
 
-export function NavDropdown({ item, isOpen, onOpen, onClose }: NavDropdownProps) {
+export function NavDropdown({ item, isActive, isOpen, onOpen, onClose }: NavDropdownProps) {
   const hasMenu = Boolean(item.groups?.length || item.items?.length);
 
   if (!hasMenu) {
     return (
       <Link
         href={item.href}
-        className="rounded-lg px-4 py-2.5 text-sm font-bold text-black transition-colors hover:text-black"
+        className={navItemClassName(isActive)}
+        aria-current={isActive ? "page" : undefined}
       >
         {item.label}
       </Link>
@@ -35,9 +38,10 @@ export function NavDropdown({ item, isOpen, onOpen, onClose }: NavDropdownProps)
     >
       <Link
         href={item.href}
-        className="inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-bold text-black transition-colors hover:text-black"
+        className={navItemClassName(isActive, "inline-flex items-center gap-1 px-3 py-2")}
         aria-expanded={isOpen}
         aria-haspopup="true"
+        aria-current={isActive ? "page" : undefined}
       >
         {item.label}
         <ChevronDown

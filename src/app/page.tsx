@@ -10,6 +10,7 @@ import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { testimonials, stats } from "@/data/testimonials";
 import { images } from "@/lib/images";
 
@@ -104,10 +105,15 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <div className="mt-14 text-center">
+            <Button asChild size="lg" className="h-12 bg-forest-600 px-8 hover:bg-forest-700">
+              <Link href="/services">Explore More Services</Link>
+            </Button>
+          </div>
         </Container>
       </Section>
 
-      <Section className="bg-forest-600 py-[5.6rem] text-white md:py-[7.2rem] lg:py-[8.8rem]">
+      <Section className="bg-forest-600 py-24 text-white md:py-28 lg:py-32">
         <Container>
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (

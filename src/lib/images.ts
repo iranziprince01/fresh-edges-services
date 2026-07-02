@@ -1,4 +1,6 @@
 /** Verified Unsplash image IDs — all return HTTP 200 via images.unsplash.com */
+import { siteConfig } from "@/lib/site";
+
 export function unsplash(
   photoId: string,
   width = 1200,
@@ -11,6 +13,22 @@ export const images = {
   hero: unsplash("photo-1600880292203-757bb62b4baf", 1920),
   heroRight: "/hero_right.png",
   intro: "/second.jpg",
+  whyChooseUs: "/professional.jpg",
+  commercial: "/commercial.jpg",
+  snowRemoval: "/snow_removal.jpg",
+  snowRemovalBenefits: "/snow_removal_benefits.jpg",
+  landscapingBenefits: "/landscaping_benefits.jpg",
+  pressureWashingService: "/pressure washing.jpg",
+  pressureWashingBenefits: "/presure_washing_benefits.jpg",
+  postConstructionCleanup: "/post_cons_cleanup.jpg",
+  postConstructionCleanupBenefits: "/post_cons_cleanup_benefits.jpg",
+  cleaner: "/cleaner.jpg",
+  career: "/career.jpg",
+  join: "/join.jpg",
+  story: `${siteConfig.assets.story}?v=${siteConfig.storyVersion}`,
+  coreValue: "/value.jpg",
+  servicesBanner: "/servie_banner.jpg",
+  bookingBanner: "/booking.jpg",
   og: unsplash("photo-1600880292203-757bb62b4baf", 1200, "&h=630"),
 
   edmontonSkyline: unsplash("photo-1477959858617-67f85cf4f1df", 1200),

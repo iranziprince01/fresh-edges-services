@@ -57,9 +57,11 @@ export const siteConfig = {
     icon: "/icon.png",
     appleIcon: "/apple-icon.png",
     faviconPng: "/favicon.png",
+    story: "/story.jpg",
   },
-  logoVersion: "4",
+  logoVersion: "5",
   faviconVersion: "3",
+  storyVersion: "3",
   keywords: [
     "Commercial Cleaning Edmonton",
     "Residential Cleaning Edmonton",
@@ -75,3 +77,9 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
+export function brandedLogoUrl(variant: "default" | "footer" = "default") {
+  const path =
+    variant === "footer" ? siteConfig.assets.logoFooter : siteConfig.assets.logo;
+  return `${path}?v=${siteConfig.logoVersion}`;
+}

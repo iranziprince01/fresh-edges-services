@@ -24,8 +24,16 @@ export function ContactForm() {
   async function onSubmit(data: ContactFormValues) {
     setStatus("loading");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      console.info("Contact form ready for backend:", data);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
       setStatus("success");
       form.reset();
     } catch {

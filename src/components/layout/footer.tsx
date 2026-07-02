@@ -18,7 +18,6 @@ const footerLinks = {
   support: [
     { title: "Book a Service", href: "/quote" },
     { title: "Contact Us", href: "/contact" },
-    { title: "FAQ", href: "/faq" },
     { title: "Privacy Policy", href: "/privacy" },
     { title: "Terms of Service", href: "/terms" },
   ],

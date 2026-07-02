@@ -3,8 +3,6 @@ import { Lato, Nunito } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { FloatingActions } from "@/components/layout/floating-actions";
-import { MobileStickyCta } from "@/components/layout/mobile-sticky-cta";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Toaster } from "@/components/ui/sonner";
 import { createMetadata } from "@/lib/seo";
@@ -83,12 +81,10 @@ export default function RootLayout({
             Skip to main content
           </a>
           <Header />
-          <main id="main-content" className="flex-1 pt-20 pb-20 sm:pt-24 sm:pb-0">
+          <main id="main-content" className="flex-1 pt-20 sm:pt-24">
             {children}
           </main>
           <Footer />
-          <FloatingActions />
-          <MobileStickyCta />
           <Toaster position="top-right" richColors />
         </ThemeProvider>
       </body>

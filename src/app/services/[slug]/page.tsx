@@ -2,19 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
-import { services, getServiceBySlug, getRelatedServices } from "@/data/services";
+import { services, getServiceBySlug } from "@/data/services";
 import { JsonLd } from "@/components/seo/json-ld";
 import { serviceSchema, breadcrumbSchema, faqSchema } from "@/lib/schemas";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
-import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { CtaSection } from "@/components/sections/cta-section";
-import { FaqAccordion } from "@/components/sections/faq-accordion";
-import { ServiceCard, ServiceCardGrid } from "@/components/sections/service-card";
-import { images } from "@/lib/images";
+import { ServiceBenefitsSection } from "@/components/sections/service-benefits-section";
+import { ServiceAudienceScopeSection } from "@/components/sections/service-audience-scope-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -41,9 +39,6 @@ export default async function ServicePage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
-  const related = getRelatedServices(service.relatedSlugs);
-  const Icon = service.icon;
-
   return (
     <>
       <JsonLd
@@ -58,33 +53,26 @@ export default async function ServicePage({ params }: Props) {
         ]}
       />
 
-      <section className="relative overflow-hidden bg-forest-950 py-20 md:py-28">
-        <div className="absolute inset-0">
+      <section className="relative overflow-hidden py-24 md:py-32">
+        <div className="absolute inset-0 overflow-hidden">
           <Image
             src={service.heroImage}
-            alt={service.shortTitle}
+            alt=""
             fill
             priority
-            className="object-cover opacity-30"
+            className="object-cover"
             sizes="100vw"
+            aria-hidden
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/90 via-forest-600/90 to-forest-700/85" />
         </div>
         <Container className="relative">
-          <Breadcrumbs
-            items={[
-              { label: "Services", href: "/services" },
-              { label: service.shortTitle },
-            ]}
-          />
           <div className="flex max-w-3xl flex-col gap-6">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-forest-50 text-fresh-400">
-              <Icon className="h-7 w-7" aria-hidden />
-            </div>
-            <h1 className="font-heading text-4xl font-bold text-white md:text-5xl">
+            <h1 className="font-heading text-4xl font-bold tracking-tight text-white md:text-5xl md:leading-[1.15]">
               {service.shortTitle}
             </h1>
-            <p className="text-lg text-white/80">{service.description}</p>
-            <Button asChild size="lg" className="w-fit bg-fresh-500 text-forest-950 hover:bg-fresh-400">
+            <p className="text-lg leading-relaxed text-white/85">{service.description}</p>
+            <Button asChild size="lg" className="w-fit h-12 bg-white px-8 text-forest-600 hover:bg-white/90">
               <Link href="/quote">
                 Get a Free Quote
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden />
@@ -96,73 +84,52 @@ export default async function ServicePage({ params }: Props) {
 
       <Section>
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-16 overflow-visible lg:grid-cols-2 lg:gap-20">
             <div>
               <SectionHeader
                 eyebrow="Overview"
                 title={`Professional ${service.shortTitle} in Edmonton`}
                 align="left"
-                className="mb-0"
+                spacing="tight"
+                className="max-w-none"
               />
-              <p className="mt-4 text-muted-foreground leading-relaxed">{service.overview}</p>
+              <div className="mt-14 space-y-3.5 text-base leading-[1.75] text-muted-foreground md:space-y-4">
+                {(service.overviewParagraphs ?? [service.overview]).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-              <Image
-                src={service.heroImage}
-                alt={`${service.shortTitle} in Edmonton`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+            <div className="relative overflow-visible">
+              <div
+                className="absolute top-[5%] left-[18%] -right-[3%] z-0 h-[90%] rounded-[1.75rem] bg-fresh-400 shadow-[0_20px_48px_rgba(115,220,100,0.45)] lg:rounded-[2rem]"
+                aria-hidden
               />
+              <div className="relative z-10 aspect-[4/3] overflow-hidden rounded-[1.75rem] ring-2 ring-forest-200/80 lg:rounded-[2rem]">
+                <Image
+                  src={service.heroImage}
+                  alt={`${service.shortTitle} in Edmonton`}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </div>
         </Container>
       </Section>
+
+      <ServiceAudienceScopeSection
+        audience={service.audience}
+        included={service.included}
+      />
+
+      <ServiceBenefitsSection
+        benefits={service.benefits}
+        image={service.benefitsImage ?? service.heroImage}
+        imageAlt={`${service.shortTitle} by Fresh Edges Services`}
+      />
 
       <Section variant="muted">
-        <Container>
-          <SectionHeader eyebrow="Benefits" title="Why Choose Fresh Edges" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {service.benefits.map((benefit) => (
-              <div key={benefit} className="flex gap-3 rounded-2xl border border-border/60 bg-card p-5">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-forest-600 dark:text-fresh-400" aria-hidden />
-                <p className="text-sm">{benefit}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <SectionHeader eyebrow="Who It's For" title="Ideal For" align="left" className="mb-6" />
-              <ul className="space-y-3">
-                {service.audience.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-forest-600" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <SectionHeader eyebrow="Scope" title="What's Included" align="left" className="mb-6" />
-              <ul className="space-y-3">
-                {service.included.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-forest-600" aria-hidden />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section variant="gradient">
         <Container>
           <SectionHeader eyebrow="Process" title="Our Process" />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -180,47 +147,6 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </Container>
       </Section>
-
-      <Section>
-        <Container>
-          <SectionHeader eyebrow="Gallery" title="Our Work" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[service.heroImage, images.residentialCleaning, images.commercialOffice].map((src, i) => (
-              <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <Image src={src} alt={`${service.shortTitle} project ${i + 1}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section variant="muted">
-        <Container>
-          <SectionHeader eyebrow="FAQ" title="Frequently Asked Questions" />
-          <div className="mx-auto max-w-3xl">
-            <FaqAccordion items={service.faqs} />
-          </div>
-        </Container>
-      </Section>
-
-      {related.length > 0 && (
-        <Section>
-          <Container>
-            <SectionHeader eyebrow="Related" title="Related Services" />
-            <ServiceCardGrid>
-              {related.map((s) => (
-                <ServiceCard
-                  key={s.slug}
-                  title={s.shortTitle}
-                  description={s.description}
-                  href={`/services/${s.slug}`}
-                  icon={s.icon}
-                />
-              ))}
-            </ServiceCardGrid>
-          </Container>
-        </Section>
-      )}
 
       <CtaSection
         title={`Interested in ${service.shortTitle}?`}

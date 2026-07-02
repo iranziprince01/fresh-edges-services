@@ -1,8 +1,11 @@
+import { cn } from "@/lib/utils";
+
 type SectionHeaderProps = {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
+  spacing?: "default" | "tight";
   className?: string;
 };
 
@@ -11,19 +14,30 @@ export function SectionHeader({
   title,
   description,
   align = "center",
+  spacing = "default",
   className,
 }: SectionHeaderProps) {
   return (
     <div
-      className={`mb-16 md:mb-24 lg:mb-28 ${align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl"} ${className ?? ""}`}
+      className={cn(
+        spacing === "default" && "mb-14 md:mb-20",
+        align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl",
+        className,
+      )}
     >
-      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-      <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-[2.75rem] md:leading-[1.15]">
-        {title}
-      </h2>
+      {eyebrow && (
+        <p className={cn("eyebrow", spacing === "tight" ? "mb-2" : "mb-4")}>
+          {eyebrow}
+        </p>
+      )}
+      <h2 className="section-heading">{title}</h2>
       {description && (
         <p
-          className={`text-lead mt-5 max-w-2xl ${align === "center" ? "mx-auto" : ""}`}
+          className={cn(
+            "text-lead max-w-2xl",
+            spacing === "tight" ? "mt-3" : "mt-5",
+            align === "center" && "mx-auto",
+          )}
         >
           {description}
         </p>

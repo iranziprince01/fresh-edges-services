@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { ContactForm } from "@/components/forms/contact-form";
+import { ContactMap } from "@/components/sections/contact-map";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = createMetadata({
@@ -18,7 +19,7 @@ export const metadata: Metadata = createMetadata({
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-20 md:py-28">
+      <section className="bg-forest-600 py-24 md:py-32">
         <Container>
           <Breadcrumbs items={[{ label: "Contact" }]} />
           <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
@@ -33,11 +34,11 @@ export default function ContactPage() {
 
       <Section>
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch">
             <div>
               <div className="space-y-4">
-                <div className="rounded-2xl border border-border/80 p-6">
-                  <h2 className="font-heading text-lg font-semibold">Office Location</h2>
+                <div className="surface-card p-6">
+                  <h2 className="font-heading text-lg font-bold">Office Location</h2>
                   <p className="mt-3 flex items-start gap-3 text-muted-foreground">
                     <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-forest-600 dark:text-fresh-400" aria-hidden />
                     <span>
@@ -49,8 +50,8 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-border/80 p-6">
-                  <h2 className="font-heading text-lg font-semibold">Contact Information</h2>
+                <div className="surface-card p-6">
+                  <h2 className="font-heading text-lg font-bold">Contact Information</h2>
                   <div className="mt-4 space-y-4">
                     <div>
                       <p className="text-sm font-medium">Office Phone</p>
@@ -86,9 +87,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <Card className="mt-6 border-border/80 shadow-none">
+              <Card className="surface-card mt-6 ring-0">
                 <CardContent className="p-6">
-                  <h2 className="flex items-center gap-2 font-heading font-semibold">
+                  <h2 className="flex items-center gap-2 font-heading text-lg font-bold">
                     <Clock className="h-5 w-5 text-forest-600" aria-hidden />
                     Business Hours
                   </h2>
@@ -103,9 +104,9 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              <Card className="mt-6 border-border/80 shadow-none">
+              <Card className="surface-card mt-6 ring-0">
                 <CardContent className="p-6">
-                  <h2 className="font-heading font-semibold">Service Area</h2>
+                  <h2 className="font-heading text-lg font-bold">Service Area</h2>
                   <p className="mt-2 text-sm text-muted-foreground">
                     Serving Edmonton, St. Albert, Sherwood Park, Beaumont, and Leduc.
                   </p>
@@ -121,35 +122,23 @@ export default function ContactPage() {
                   </ul>
                 </CardContent>
               </Card>
-
-              <div
-                className="mt-6 flex aspect-video items-center justify-center rounded-2xl border border-border/80 bg-muted/50"
-                role="img"
-                aria-label="Map showing Fresh Edges office location in Edmonton"
-              >
-                <div className="p-6 text-center">
-                  <MapPin className="mx-auto h-8 w-8 text-forest-600" aria-hidden />
-                  <p className="mt-2 text-sm font-medium">
-                    {siteConfig.address.street}, {siteConfig.address.city}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Interactive map embed: replace with Google Maps iframe on deployment
-                  </p>
-                </div>
-              </div>
             </div>
 
-            <Card className="border-border/80 shadow-none">
-              <CardContent className="p-6 md:p-8">
-                <h2 className="font-heading text-xl font-semibold">Send a Message</h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  We typically respond within one business day.
-                </p>
-                <div className="mt-6">
-                  <ContactForm />
-                </div>
-              </CardContent>
-            </Card>
+            <div className="flex min-h-0 flex-col gap-6">
+              <Card className="surface-card h-fit w-full shrink-0 ring-0">
+                <CardContent className="p-6 md:p-8">
+                  <h2 className="font-heading text-xl font-bold">Send a Message</h2>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    We typically respond within one business day.
+                  </p>
+                  <div className="mt-6">
+                    <ContactForm />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <ContactMap className="min-h-0" />
+            </div>
           </div>
         </Container>
       </Section>

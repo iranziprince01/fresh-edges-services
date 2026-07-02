@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { siteConfig } from "@/lib/site";
+import { brandedLogoUrl, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -9,19 +9,13 @@ type LogoProps = {
 };
 
 export function Logo({ className, priority, variant = "default" }: LogoProps) {
-  const src =
-    variant === "footer"
-      ? siteConfig.assets.logoFooter
-      : siteConfig.assets.logo;
-  const logoSrc = `${src}?v=${siteConfig.logoVersion}`;
-
   return (
     <Image
-      src={logoSrc}
+      src={brandedLogoUrl(variant)}
       alt={siteConfig.name}
-      width={280}
-      height={112}
-      className={cn("h-12 w-auto object-contain object-left", className)}
+      width={1500}
+      height={600}
+      className={cn("h-11 w-auto max-w-[240px] object-contain object-left sm:h-12 sm:max-w-[260px] md:h-14 md:max-w-[300px]", className)}
       priority={priority}
     />
   );

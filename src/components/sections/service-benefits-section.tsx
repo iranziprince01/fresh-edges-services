@@ -1,0 +1,68 @@
+import Image from "next/image";
+import { Container } from "@/components/layout/container";
+import { Section } from "@/components/layout/section";
+import { SectionHeader } from "@/components/layout/section-header";
+
+type ServiceBenefitsSectionProps = {
+  title?: string;
+  benefits: string[];
+  image: string;
+  imageAlt: string;
+};
+
+export function ServiceBenefitsSection({
+  title = "Why Choose Fresh Edges",
+  benefits,
+  image,
+  imageAlt,
+}: ServiceBenefitsSectionProps) {
+  return (
+    <Section>
+      <Container className="grid items-center gap-16 overflow-visible lg:grid-cols-[min(38%,400px)_1fr] lg:items-stretch lg:gap-16 xl:gap-20">
+        <div className="relative mx-auto w-full max-w-[340px] self-stretch overflow-visible lg:mx-0 lg:max-w-none">
+          <div className="relative aspect-[3/4] min-h-[320px] w-full overflow-visible lg:h-full lg:min-h-0 lg:aspect-auto">
+            <div
+              className="absolute top-[5%] right-[18%] -left-[3%] z-0 h-[90%] rounded-[1.75rem] bg-fresh-400 shadow-[0_20px_48px_rgba(115,220,100,0.45)] lg:rounded-[2rem]"
+              aria-hidden
+            />
+            <div className="relative z-10 h-full overflow-hidden rounded-[1.75rem] ring-2 ring-forest-200/80 lg:rounded-[2rem]">
+              <Image
+                src={image}
+                alt={imageAlt}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 340px, 400px"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center">
+          <SectionHeader
+            eyebrow="Benefits"
+            title={title}
+            align="left"
+            spacing="tight"
+            className="max-w-none"
+          />
+
+          <ul className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {benefits.map((item) => (
+              <li key={item}>
+                <div className="flex h-full items-start gap-3 rounded-lg border border-border bg-card px-4 py-4">
+                  <span
+                    className="mt-0.5 shrink-0 text-sm font-semibold text-forest-600"
+                    aria-hidden
+                  >
+                    ✓
+                  </span>
+                  <span className="text-sm leading-relaxed text-foreground">{item}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
+    </Section>
+  );
+}

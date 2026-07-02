@@ -4,14 +4,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/layout/container";
 import { images } from "@/lib/images";
+import { siteConfig } from "@/lib/site";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 export function IntroSection() {
   const reducedMotion = usePrefersReducedMotion();
 
   return (
-    <section className="bg-background py-28 md:py-36 lg:py-44">
-      <Container className="grid items-center gap-12 overflow-visible lg:grid-cols-[min(38%,400px)_1fr] lg:items-stretch lg:gap-10 xl:gap-14">
+    <section className="bg-background py-24 md:py-28 lg:py-32">
+      <Container className="grid items-center gap-16 overflow-visible lg:grid-cols-[min(38%,400px)_1fr] lg:items-stretch lg:gap-16 xl:gap-20">
         <motion.div
           initial={reducedMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -42,9 +43,11 @@ export function IntroSection() {
           className="flex flex-col justify-center gap-6 text-left"
         >
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            At Fresh Edges Services Ltd, we understand that maintaining a clean, safe,
-            and well-managed property is not just about appearance, it is about creating
-            spaces where people can live, work, and thrive with confidence.
+            At{" "}
+            <span className="font-bold text-forest-600">{siteConfig.name}</span>, we understand
+            that maintaining a clean, safe, and well-managed property is not just about
+            appearance, it is about creating spaces where people can live, work, and thrive
+            with confidence.
           </p>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
             We are an Edmonton-based company providing professional cleaning, property

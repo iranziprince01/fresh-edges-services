@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import {
   Sheet,
@@ -14,9 +15,10 @@ import { Logo } from "@/components/layout/logo";
 import { BookServiceButton } from "@/components/layout/book-service-button";
 import { NavDropdown } from "@/components/layout/nav-dropdown";
 import { MobileNavSection } from "@/components/layout/mobile-nav-section";
-import { mainNav } from "@/data/navigation";
+import { mainNav, isNavItemActive } from "@/data/navigation";
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -36,6 +38,7 @@ export function Header() {
             <NavDropdown
               key={item.id}
               item={item}
+              isActive={isNavItemActive(pathname, item.href)}
               isOpen={openDropdown === item.id}
               onOpen={() => setOpenDropdown(item.id)}
               onClose={() => setOpenDropdown(null)}
@@ -62,6 +65,7 @@ export function Header() {
                   <MobileNavSection
                     key={item.id}
                     item={item}
+                    isActive={isNavItemActive(pathname, item.href)}
                     onNavigate={() => setOpen(false)}
                   />
                 ))}

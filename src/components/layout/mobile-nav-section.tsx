@@ -4,14 +4,16 @@ import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import type { NavItem } from "@/data/navigation";
+import { mobileNavItemClassName } from "@/lib/nav-styles";
 import { cn } from "@/lib/utils";
 
 type MobileNavSectionProps = {
   item: NavItem;
+  isActive: boolean;
   onNavigate: () => void;
 };
 
-export function MobileNavSection({ item, onNavigate }: MobileNavSectionProps) {
+export function MobileNavSection({ item, isActive, onNavigate }: MobileNavSectionProps) {
   const hasMenu = Boolean(item.groups?.length || item.items?.length);
   const [expanded, setExpanded] = useState(false);
 
@@ -20,7 +22,8 @@ export function MobileNavSection({ item, onNavigate }: MobileNavSectionProps) {
       <Link
         href={item.href}
         onClick={onNavigate}
-        className="block rounded-xl px-4 py-3 text-base font-bold text-black transition-colors hover:bg-muted hover:text-black"
+        className={mobileNavItemClassName(isActive)}
+        aria-current={isActive ? "page" : undefined}
       >
         {item.label}
       </Link>
@@ -28,12 +31,18 @@ export function MobileNavSection({ item, onNavigate }: MobileNavSectionProps) {
   }
 
   return (
-    <div className="rounded-xl border border-border/60">
+    <div className={cn("rounded-xl border", isActive ? "border-forest-200" : "border-border/60")}>
       <div className="flex items-center">
         <Link
           href={item.href}
           onClick={onNavigate}
-          className="flex-1 rounded-l-xl px-4 py-3 text-base font-bold text-black transition-colors hover:bg-muted hover:text-black"
+          className={cn(
+            "flex-1 rounded-l-xl px-4 py-3 text-base font-bold transition-colors",
+            isActive
+              ? "bg-forest-50 text-forest-600"
+              : "text-black hover:bg-muted hover:text-black",
+          )}
+          aria-current={isActive ? "page" : undefined}
         >
           {item.label}
         </Link>
