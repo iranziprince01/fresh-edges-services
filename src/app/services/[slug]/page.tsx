@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getServiceBySlug(slug);
   if (!service) return {};
   return createMetadata({
-    title: service.title,
+    title: service.shortTitle,
     description: service.description,
     path: `/services/${slug}`,
     keywords: service.keywords,

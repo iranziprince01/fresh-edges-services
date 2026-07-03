@@ -20,7 +20,7 @@ import { siteConfig } from "@/lib/site";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = createMetadata({
-  title: "About Fresh Edges Services",
+  title: "About",
   description:
     "Learn about Fresh Edges Services Ltd, an Edmonton-based property care company built on service, reliability, and excellence across Alberta.",
   path: "/about",

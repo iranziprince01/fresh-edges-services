@@ -1,7 +1,9 @@
 export const siteConfig = {
   name: "Fresh Edges Services Ltd",
+  brandName: "Fresh Edges Services",
   shortName: "Fresh Edges",
   tagline: "Reliable Property Care · Trusted Service · Stronger Communities",
+  homeTitleTagline: "Reliable Property Care",
   description:
     "Edmonton-based professional cleaning, property maintenance, landscaping, snow removal, facility support, and exterior care for residential and commercial clients across Alberta.",
   url: "https://www.freshedges.ca",

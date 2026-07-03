@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = createMetadata({
-  title: "Careers at Fresh Edges",
+  title: "Careers",
   description:
     "Build your future with Fresh Edges Services Ltd. Join our growing Edmonton team in cleaning, landscaping, snow removal, and property maintenance.",
   path: "/careers",

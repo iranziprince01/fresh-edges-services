@@ -11,7 +11,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = createMetadata({
-  title: "Industries Served",
+  title: "Industries",
   description:
     "Fresh Edges serves offices, healthcare, retail, restaurants, schools, warehouses, property management, and municipal organizations across Edmonton.",
   path: "/industries",

@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = createMetadata({
-  title: "Pricing & Quotes",
+  title: "Pricing",
   description:
     "Transparent, customized pricing for commercial cleaning, residential cleaning, snow removal, and property maintenance in Edmonton. Request your free quote today.",
   path: "/pricing",

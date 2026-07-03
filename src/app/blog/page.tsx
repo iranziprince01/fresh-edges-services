@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = createMetadata({
-  title: "Blog & Property Care Tips",
+  title: "Blog",
   description:
     "Property maintenance tips, seasonal advice, and industry insights from Fresh Edges Services, Edmonton's property care experts.",
   path: "/blog",

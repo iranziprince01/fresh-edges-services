@@ -22,8 +22,8 @@ export function createMetadata({
   const url = `${siteConfig.url}${path}`;
   const fullTitle =
     path === "" || path === "/"
-      ? `${siteConfig.name} | ${siteConfig.tagline}`
-      : `${title} | ${siteConfig.shortName}`;
+      ? `${siteConfig.brandName} | ${siteConfig.homeTitleTagline}`
+      : `${title} | ${siteConfig.brandName}`;
 
   return {
     title: fullTitle,

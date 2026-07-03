@@ -10,7 +10,7 @@ import { serviceListingCards } from "@/data/services";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = createMetadata({
-  title: "Property Services Edmonton",
+  title: "Services",
   description:
     "Explore commercial cleaning, residential cleaning, snow removal, landscaping, pressure washing, property maintenance, and post construction cleanup in Edmonton, Alberta.",
   path: "/services",

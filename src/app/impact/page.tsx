@@ -10,7 +10,7 @@ import { ImpactContributionCards } from "@/components/sections/impact-contributi
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = createMetadata({
-  title: "Our Impact",
+  title: "Impact",
   description:
     "Fresh Edges Services Ltd is committed to building stronger communities through employment opportunities, newcomer support, and meaningful contribution across Alberta.",
   path: "/impact",

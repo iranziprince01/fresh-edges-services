@@ -12,7 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = createMetadata({
-  title: "Client Testimonials",
+  title: "Testimonials",
   description:
     "Read reviews from Edmonton property managers, business owners, and homeowners who trust Fresh Edges for cleaning, landscaping, and snow removal.",
   path: "/testimonials",
