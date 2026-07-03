@@ -19,13 +19,11 @@ export const metadata: Metadata = createMetadata({
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-forest-600 py-24 md:py-32">
+      <section className="page-hero bg-forest-600">
         <Container>
           <Breadcrumbs items={[{ label: "Blog" }]} />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold text-white md:text-5xl">
-            Insights &amp; Tips
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <h1 className="page-title mt-4">Insights &amp; Tips</h1>
+          <p className="mt-4 max-w-2xl text-base text-white/80 sm:mt-4 sm:text-lg">
             Expert advice on property care, seasonal maintenance, and facility management.
           </p>
         </Container>

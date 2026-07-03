@@ -19,13 +19,13 @@ function AudienceCard({
 }) {
   const headerClassName =
     variant === "gradient"
-      ? "relative overflow-hidden bg-gradient-to-br from-forest-700 via-forest-600 to-forest-600 px-8 py-10 md:px-10 md:py-12"
-      : "relative overflow-hidden bg-forest-600 px-8 py-10 md:px-10 md:py-12";
+      ? "relative overflow-hidden bg-gradient-to-br from-forest-700 via-forest-600 to-forest-600 px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12"
+      : "relative overflow-hidden bg-forest-600 px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12";
 
   const bodyClassName =
     variant === "gradient"
-      ? "flex flex-1 flex-col border-t border-forest-100 bg-forest-50/60 px-8 py-8 md:px-10 md:py-10"
-      : "flex flex-1 flex-col border-t border-forest-100 bg-white px-8 py-8 md:px-10 md:py-10";
+      ? "flex flex-1 flex-col border-t border-forest-100 bg-forest-50/60 px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10"
+      : "flex flex-1 flex-col border-t border-forest-100 bg-white px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10";
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-[1.75rem] border border-forest-200/80 bg-white shadow-[0_16px_40px_rgba(20,83,45,0.08)] transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(20,83,45,0.12)]">
@@ -40,7 +40,7 @@ function AudienceCard({
         />
         <div className="absolute right-8 bottom-0 h-px w-16 bg-fresh-400/80" aria-hidden />
         <div className="relative">
-          <h2 className="font-heading text-2xl font-bold tracking-[0.12em] text-white uppercase md:text-[1.75rem] md:leading-tight">
+          <h2 className="font-heading text-xl font-bold tracking-[0.1em] text-white uppercase sm:text-2xl md:text-[1.75rem] md:leading-tight md:tracking-[0.12em]">
             {title}
           </h2>
         </div>
@@ -83,8 +83,8 @@ export function ServiceAudienceScopeSection({
     <Section variant="muted">
       <Container>
         <ServiceAudienceScopeCards audience={audience} included={included} />
-        <div className="mt-14 flex justify-center">
-          <BookServiceButton className="h-12 px-8 text-base" />
+        <div className="mt-10 flex justify-center sm:mt-14">
+          <BookServiceButton className="h-12 w-full px-8 text-base sm:w-auto" />
         </div>
       </Container>
     </Section>

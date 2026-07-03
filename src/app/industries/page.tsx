@@ -20,13 +20,11 @@ export const metadata: Metadata = createMetadata({
 export default function IndustriesPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-24 md:py-32">
+      <section className="page-hero bg-forest-600">
         <Container>
           <Breadcrumbs items={[{ label: "Industries" }]} />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold text-white md:text-5xl">
-            Industries We Serve
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <h1 className="page-title mt-4">Industries We Serve</h1>
+          <p className="mt-4 max-w-2xl text-base text-white/80 sm:text-lg">
             Tailored property maintenance solutions for every sector across Edmonton and Alberta.
           </p>
         </Container>

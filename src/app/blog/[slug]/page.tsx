@@ -49,11 +49,11 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       <article>
-        <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-16 md:py-20">
+        <section className="page-hero bg-forest-600">
           <Container size="narrow">
             <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: post.title }]} />
             <Badge className="mt-4 mb-4 bg-forest-50 text-forest-700">{post.category}</Badge>
-            <h1 className="font-heading text-3xl font-bold text-white md:text-4xl">{post.title}</h1>
+            <h1 className="page-title text-[1.65rem] sm:text-3xl md:text-4xl">{post.title}</h1>
             <p className="mt-4 text-white/70">
               {new Date(post.publishedAt).toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })} · {post.readTime}
             </p>
@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         <Section>
           <Container size="narrow">
-            <div className="relative mb-10 aspect-[16/9] overflow-hidden rounded-3xl">
+            <div className="relative mb-8 aspect-[16/9] overflow-hidden rounded-2xl sm:mb-10 sm:rounded-3xl">
               <Image src={post.image} alt={post.title} fill className="object-cover" sizes="(max-width: 896px) 100vw, 896px" priority />
             </div>
             <div className="prose prose-lg max-w-none text-muted-foreground dark:prose-invert">
@@ -73,11 +73,11 @@ export default async function BlogPostPage({ params }: Props) {
                 residential care, landscaping, or snow removal, our team delivers results you can trust.
               </p>
             </div>
-            <div className="mt-10 flex gap-4">
-              <Button asChild className="bg-forest-600 hover:bg-forest-700">
+            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+              <Button asChild className="w-full bg-forest-600 hover:bg-forest-700 sm:w-auto">
                 <Link href="/quote">Get a Free Quote</Link>
               </Button>
-              <Button asChild variant="outline">
+              <Button asChild variant="outline" className="w-full sm:w-auto">
                 <Link href="/blog">Back to Blog</Link>
               </Button>
             </div>

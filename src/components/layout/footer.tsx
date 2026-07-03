@@ -52,14 +52,14 @@ export function Footer() {
             <div className="mt-6 space-y-3 text-sm text-white/80">
               <a
                 href={siteConfig.phoneHref}
-                className="flex items-center gap-2 transition-colors hover:text-fresh-300"
+                className="flex flex-wrap items-center gap-2 break-all transition-colors hover:text-fresh-300 sm:break-normal"
               >
                 <Phone className="h-4 w-4 shrink-0 text-fresh-400" aria-hidden />
                 {siteConfig.phone}
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2 transition-colors hover:text-fresh-300"
+                className="flex flex-wrap items-center gap-2 break-all transition-colors hover:text-fresh-300"
               >
                 <Mail className="h-4 w-4 shrink-0 text-fresh-400" aria-hidden />
                 {siteConfig.email}
@@ -90,7 +90,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3 lg:col-span-8">
+          <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:col-span-8 lg:grid-cols-3">
             <div>
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-fresh-400">
                 Services

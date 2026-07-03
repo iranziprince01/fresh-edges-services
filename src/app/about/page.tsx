@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { FramedImage } from "@/components/layout/framed-image";
 import { MapPin } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/layout/container";
@@ -28,18 +29,18 @@ export const metadata: Metadata = createMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-forest-600 py-24 md:py-32">
+      <section className="page-hero bg-forest-600">
         <Container>
           <Breadcrumbs items={[{ label: "About" }]} />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.15]">
+          <h1 className="page-title mt-4">
             Built On Service, Driven By Excellence.
           </h1>
         </Container>
       </section>
 
       <Section>
-        <Container className="grid items-center gap-16 overflow-visible lg:grid-cols-[1fr_min(48%,500px)] lg:items-stretch lg:gap-16 xl:gap-20">
-          <div className="flex flex-col justify-center lg:justify-start">
+        <Container className="split-section overflow-x-clip lg:grid-cols-[1fr_min(48%,500px)] lg:items-stretch">
+          <div className="flex min-w-0 flex-col justify-center lg:justify-start">
             <div className="max-w-lg">
               <SectionHeader
                 eyebrow="Our story"
@@ -48,7 +49,7 @@ export default function AboutPage() {
                 spacing="tight"
                 className="max-w-none"
               />
-              <div className="mt-14 space-y-3.5 text-base leading-[1.75] text-muted-foreground md:space-y-4">
+              <div className="content-stack space-y-3.5 text-base leading-[1.75] text-muted-foreground md:space-y-4">
                 <p className="text-lg font-bold italic leading-relaxed text-forest-600 md:text-xl md:leading-relaxed">
                   &ldquo;{siteConfig.name} was founded with a simple purpose: to make property care
                   easier, more reliable, and more professional for homes and businesses across
@@ -82,24 +83,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[340px] self-stretch overflow-visible lg:mx-0 lg:max-w-none">
-            <div className="relative aspect-[3/4] min-h-[320px] w-full overflow-visible lg:h-full lg:min-h-0 lg:aspect-auto">
-              <div
-                className="absolute top-[5%] left-[18%] -right-[3%] z-0 h-[90%] rounded-[1.75rem] bg-fresh-400 shadow-[0_20px_48px_rgba(115,220,100,0.45)] lg:rounded-[2rem]"
-                aria-hidden
-              />
-              <div className="relative z-10 h-full overflow-hidden rounded-[1.75rem] ring-2 ring-forest-200/80 lg:rounded-[2rem]">
-                <Image
-                  src={images.story}
-                  alt="Fresh Edges team delivering professional property care"
-                  fill
-                  priority
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 340px, 500px"
-                />
-              </div>
-            </div>
-          </div>
+          <FramedImage
+            src={images.story}
+            alt="Fresh Edges team delivering professional property care"
+            priority
+            shadowSide="left"
+            sizes="(max-width: 1024px) 340px, 500px"
+            className="self-stretch lg:mx-0"
+          />
         </Container>
       </Section>
 

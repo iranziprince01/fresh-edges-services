@@ -13,6 +13,7 @@ import { SectionHeader } from "@/components/layout/section-header";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ServiceBenefitsSection } from "@/components/sections/service-benefits-section";
 import { ServiceAudienceScopeSection } from "@/components/sections/service-audience-scope-section";
+import { FramedImage } from "@/components/layout/framed-image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -53,7 +54,7 @@ export default async function ServicePage({ params }: Props) {
         ]}
       />
 
-      <section className="relative overflow-hidden py-24 md:py-32">
+      <section className="page-hero relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src={service.heroImage}
@@ -67,12 +68,10 @@ export default async function ServicePage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-r from-forest-600/90 via-forest-600/90 to-forest-700/85" />
         </div>
         <Container className="relative">
-          <div className="flex max-w-3xl flex-col gap-6">
-            <h1 className="font-heading text-4xl font-bold tracking-tight text-white md:text-5xl md:leading-[1.15]">
-              {service.shortTitle}
-            </h1>
-            <p className="text-lg leading-relaxed text-white/85">{service.description}</p>
-            <Button asChild size="lg" className="w-fit h-12 bg-white px-8 text-forest-600 hover:bg-white/90">
+          <div className="flex min-w-0 max-w-3xl flex-col gap-4 sm:gap-6">
+            <h1 className="page-title font-bold">{service.shortTitle}</h1>
+            <p className="text-base leading-relaxed text-white/85 sm:text-lg">{service.description}</p>
+            <Button asChild size="lg" className="h-12 w-full bg-white px-8 text-forest-600 hover:bg-white/90 sm:w-fit">
               <Link href="/quote">
                 Get a Free Quote
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden />
@@ -84,8 +83,8 @@ export default async function ServicePage({ params }: Props) {
 
       <Section>
         <Container>
-          <div className="grid items-center gap-16 overflow-visible lg:grid-cols-2 lg:gap-20">
-            <div>
+          <div className="split-section overflow-x-clip lg:grid-cols-2">
+            <div className="min-w-0">
               <SectionHeader
                 eyebrow="Overview"
                 title={`Professional ${service.shortTitle} in Edmonton`}
@@ -93,27 +92,20 @@ export default async function ServicePage({ params }: Props) {
                 spacing="tight"
                 className="max-w-none"
               />
-              <div className="mt-14 space-y-3.5 text-base leading-[1.75] text-muted-foreground md:space-y-4">
+              <div className="content-stack space-y-3.5 text-base leading-[1.75] text-muted-foreground md:space-y-4">
                 {(service.overviewParagraphs ?? [service.overview]).map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
             </div>
-            <div className="relative overflow-visible">
-              <div
-                className="absolute top-[5%] left-[18%] -right-[3%] z-0 h-[90%] rounded-[1.75rem] bg-fresh-400 shadow-[0_20px_48px_rgba(115,220,100,0.45)] lg:rounded-[2rem]"
-                aria-hidden
-              />
-              <div className="relative z-10 aspect-[4/3] overflow-hidden rounded-[1.75rem] ring-2 ring-forest-200/80 lg:rounded-[2rem]">
-                <Image
-                  src={service.heroImage}
-                  alt={`${service.shortTitle} in Edmonton`}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
+            <FramedImage
+              src={service.heroImage}
+              alt={`${service.shortTitle} in Edmonton`}
+              layout="landscape"
+              shadowSide="left"
+              maxWidthClass="max-w-none"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
         </Container>
       </Section>

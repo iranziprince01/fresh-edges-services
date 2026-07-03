@@ -21,7 +21,7 @@ export const metadata: Metadata = createMetadata({
 export default function QuotePage() {
   return (
     <>
-      <section className="relative overflow-hidden py-24 md:py-32">
+      <section className="page-hero relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src={images.bookingBanner}
@@ -37,10 +37,10 @@ export default function QuotePage() {
 
         <Container className="relative">
           <Breadcrumbs items={[{ label: "Book a Service" }]} variant="light" />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.15]">
+          <h1 className="page-title mt-4">
             Request Professional Service In Minutes
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
             Need help maintaining your property? Our team is ready to assist. Fill out our
             booking request form and we will contact you shortly.
           </p>
@@ -49,8 +49,8 @@ export default function QuotePage() {
 
       <Section>
         <Container>
-          <div className="grid gap-12 lg:grid-cols-3">
-            <div className="lg:col-span-2">
+          <div className="grid gap-8 lg:grid-cols-3 lg:gap-12">
+            <div className="min-w-0 lg:col-span-2">
               <Card className="surface-card ring-0">
                 <CardContent className="p-6 md:p-10">
                   <h2 className="font-heading text-xl font-semibold">Booking Form</h2>
@@ -60,7 +60,7 @@ export default function QuotePage() {
                 </CardContent>
               </Card>
             </div>
-            <div className="space-y-6">
+            <div className="min-w-0 space-y-6">
               <Card className="surface-card ring-0">
                 <CardContent className="p-6">
                   <h2 className="font-heading text-lg font-semibold">Prefer to talk?</h2>

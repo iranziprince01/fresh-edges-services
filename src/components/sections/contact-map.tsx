@@ -15,7 +15,7 @@ export function ContactMap({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "surface-card flex min-h-[280px] flex-col overflow-hidden lg:min-h-0 lg:flex-1",
+        "surface-card flex min-h-[220px] flex-col overflow-hidden sm:min-h-[280px] lg:min-h-0 lg:flex-1",
         className,
       )}
     >

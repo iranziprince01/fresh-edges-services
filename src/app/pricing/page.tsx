@@ -29,16 +29,14 @@ const pricingFactors = [
 export default function PricingPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-24 md:py-32">
+      <section className="page-hero bg-forest-600">
         <Container>
           <Breadcrumbs items={[{ label: "Pricing" }]} />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold text-white md:text-5xl">
-            Custom Pricing for Every Property
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <h1 className="page-title mt-4">Custom Pricing for Every Property</h1>
+          <p className="mt-4 max-w-2xl text-base text-white/80 sm:text-lg">
             Every property is unique. We provide transparent, customized quotes, never one-size-fits-all pricing.
           </p>
-          <Button asChild size="lg" className="mt-8 bg-fresh-500 text-forest-950 hover:bg-fresh-400">
+          <Button asChild size="lg" className="mt-6 w-full bg-fresh-500 text-forest-950 hover:bg-fresh-400 sm:mt-8 sm:w-auto">
             <Link href="/quote">Request Free Quote</Link>
           </Button>
         </Container>

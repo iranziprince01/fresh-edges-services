@@ -24,9 +24,9 @@ export function Header() {
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 w-full border-b border-border/60 bg-white shadow-sm">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:h-24 sm:px-6 lg:px-8">
-        <Link href="/" className="group shrink-0 transition-opacity hover:opacity-90">
-          <Logo priority className="h-14 w-auto sm:h-16 md:h-[4.5rem]" />
+      <div className="mx-auto flex h-[4.25rem] max-w-7xl min-w-0 items-center justify-between gap-2 px-3 sm:h-20 sm:gap-4 sm:px-6 lg:h-24 lg:gap-6 lg:px-8">
+        <Link href="/" className="group min-w-0 shrink transition-opacity hover:opacity-90">
+          <Logo priority className="h-10 w-auto sm:h-14 md:h-16 lg:h-[4.5rem]" />
         </Link>
 
         <nav
@@ -46,7 +46,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <BookServiceButton className="hidden sm:inline-flex" />
 
           <Sheet open={open} onOpenChange={setOpen}>

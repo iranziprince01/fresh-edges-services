@@ -23,13 +23,11 @@ export default function TestimonialsPage() {
     <>
       <JsonLd data={reviewSchema(testimonials)} />
 
-      <section className="bg-gradient-to-br from-forest-900 to-forest-950 py-24 md:py-32">
+      <section className="page-hero bg-forest-600">
         <Container>
           <Breadcrumbs items={[{ label: "Testimonials" }]} />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold text-white md:text-5xl">
-            What Our Clients Say
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-white/80">
+          <h1 className="page-title mt-4">What Our Clients Say</h1>
+          <p className="mt-4 max-w-2xl text-base text-white/80 sm:text-lg">
             Trusted by property managers, facility directors, and homeowners across Alberta.
           </p>
         </Container>

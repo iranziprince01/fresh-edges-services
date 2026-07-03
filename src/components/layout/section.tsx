@@ -12,7 +12,7 @@ export function Section({
   return (
     <section
       className={cn(
-        "py-24 md:py-28 lg:py-32",
+        "py-16 sm:py-20 md:py-28 lg:py-32",
         variant === "default" && "bg-background",
         variant === "muted" && "bg-forest-50 dark:bg-forest-950/30",
         variant === "dark" &&

@@ -20,8 +20,8 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        spacing === "default" && "mb-14 md:mb-20",
-        align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl",
+        spacing === "default" && "mb-10 sm:mb-14 md:mb-20",
+        align === "center" ? "mx-auto max-w-3xl min-w-0 text-center" : "max-w-2xl min-w-0",
         className,
       )}
     >

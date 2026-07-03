@@ -21,11 +21,11 @@ export function CtaSection({
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="section-heading">{title}</h2>
           <p className="text-lead mx-auto mt-5">{description}</p>
-          <div className="mt-14 flex justify-center">
+          <div className="mt-10 flex flex-col items-stretch gap-3 sm:mt-14 sm:flex-row sm:justify-center">
             <Button
               asChild
               size="lg"
-              className="h-12 bg-forest-600 px-8 hover:bg-forest-700"
+              className="h-12 w-full bg-forest-600 px-8 hover:bg-forest-700 sm:w-auto"
             >
               <Link href="/quote">
                 Book Service

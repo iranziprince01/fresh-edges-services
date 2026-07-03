@@ -91,7 +91,7 @@ export default function HomePage() {
               <Link
                 key={category.title}
                 href={category.href}
-                className="group flex flex-col rounded-2xl border border-forest-500/40 bg-forest-600 p-8 shadow-sm shadow-forest-950/15 transition-[border-color,background-color,box-shadow] hover:border-forest-400 hover:bg-forest-700 hover:shadow-md hover:shadow-forest-950/20"
+                className="group flex flex-col rounded-2xl border border-forest-500/40 bg-forest-600 p-6 shadow-sm shadow-forest-950/15 transition-[border-color,background-color,box-shadow] hover:border-forest-400 hover:bg-forest-700 hover:shadow-md hover:shadow-forest-950/20 sm:p-8"
               >
                 <h3 className="font-heading text-xl font-semibold tracking-tight text-white">
                   {category.title}
@@ -105,20 +105,20 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <div className="mt-14 text-center">
-            <Button asChild size="lg" className="h-12 bg-forest-600 px-8 hover:bg-forest-700">
+          <div className="mt-10 text-center sm:mt-14">
+            <Button asChild size="lg" className="h-12 w-full bg-forest-600 px-8 hover:bg-forest-700 sm:w-auto">
               <Link href="/services">Explore More Services</Link>
             </Button>
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-forest-600 py-24 text-white md:py-28 lg:py-32">
+      <Section className="bg-forest-600 py-16 text-white sm:py-20 md:py-28 lg:py-32">
         <Container>
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-12">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-heading text-4xl font-bold tracking-tight text-white md:text-5xl">
+                <p className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-white/70">{stat.label}</p>

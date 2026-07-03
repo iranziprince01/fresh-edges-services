@@ -19,13 +19,11 @@ export const metadata: Metadata = createMetadata({
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-forest-600 py-24 md:py-32">
+      <section className="page-hero bg-forest-600">
         <Container>
           <Breadcrumbs items={[{ label: "Contact" }]} />
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
-            Let&apos;s Work Together
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+          <h1 className="page-title mt-4">Let&apos;s Work Together</h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
             Whether you need one-time support or long-term property maintenance solutions, our
             team is ready to help. We look forward to serving you.
           </p>
@@ -34,8 +32,8 @@ export default function ContactPage() {
 
       <Section>
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch">
-            <div>
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-12">
+            <div className="min-w-0">
               <div className="space-y-4">
                 <div className="surface-card p-6">
                   <h2 className="font-heading text-lg font-bold">Office Location</h2>
@@ -95,9 +93,9 @@ export default function ContactPage() {
                   </h2>
                   <ul className="mt-4 space-y-2">
                     {siteConfig.hours.map((h) => (
-                      <li key={h.days} className="flex justify-between text-sm">
+                      <li key={h.days} className="flex flex-col gap-0.5 text-sm sm:flex-row sm:justify-between sm:gap-4">
                         <span className="font-medium">{h.days}</span>
-                        <span className="text-muted-foreground">{h.hours}</span>
+                        <span className="text-muted-foreground sm:text-right">{h.hours}</span>
                       </li>
                     ))}
                   </ul>
@@ -124,7 +122,7 @@ export default function ContactPage() {
               </Card>
             </div>
 
-            <div className="flex min-h-0 flex-col gap-6">
+            <div className="flex min-h-0 min-w-0 flex-col gap-6">
               <Card className="surface-card h-fit w-full shrink-0 ring-0">
                 <CardContent className="p-6 md:p-8">
                   <h2 className="font-heading text-xl font-bold">Send a Message</h2>

@@ -16,6 +16,7 @@ export const whyChooseUs = [
   "Residential and commercial expertise",
   "Fast response and consistent communication",
   "Commitment to quality on every project",
+  "Fully insured service for your peace of mind",
 ] as const;
 
 export const mission =

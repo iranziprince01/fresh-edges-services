@@ -20,7 +20,7 @@ export const metadata: Metadata = createMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative overflow-hidden py-24 md:py-32">
+      <section className="page-hero relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src={images.servicesBanner}
@@ -36,10 +36,10 @@ export default function ServicesPage() {
 
         <Container className="relative">
           <Breadcrumbs items={[{ label: "Services" }]} variant="light" />
-          <h1 className="max-w-3xl font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl md:leading-[1.15]">
+          <h1 className="page-title">
             Complete Property Solutions For Homes And Businesses
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
             Fresh Edges Services offers year-round professional property care solutions designed
             to simplify property management and maintain high-quality spaces.
           </p>
