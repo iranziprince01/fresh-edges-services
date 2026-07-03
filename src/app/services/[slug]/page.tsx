@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: Props) {
 
       <Section>
         <Container>
-          <div className="split-section overflow-x-clip lg:grid-cols-2">
+          <div className="split-section lg:grid-cols-2">
             <div className="min-w-0">
               <SectionHeader
                 eyebrow="Overview"

@@ -36,21 +36,23 @@ export function HeroSection() {
           initial={reducedMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex min-w-0 max-w-5xl flex-col items-center justify-center gap-6 text-center sm:gap-8 md:gap-10 lg:items-start lg:text-left"
+          className="flex min-w-0 max-w-5xl flex-col items-center justify-center gap-10 text-center sm:gap-14 md:gap-16 lg:items-start lg:justify-between lg:text-left"
         >
-          <h1 className="font-heading text-[2.15rem] font-black leading-[1.05] tracking-tight text-white min-[375px]:text-4xl sm:text-5xl sm:leading-[0.98] md:text-6xl lg:text-7xl xl:text-[5.5rem] xl:leading-[0.95]">
-            <span className="block">
-              Professional Property{" "}
-              <span className="text-fresh-300">Services</span>
-            </span>
-            <span className="block">Built Around</span>
-            <span className="block">
-              <span className="text-fresh-300">Reliability</span>
-            </span>
-          </h1>
-          <p className="max-w-xl text-balance text-[0.65rem] font-medium uppercase tracking-[0.12em] text-fresh-300 sm:text-xs sm:tracking-[0.18em] md:text-sm lg:text-left">
-            {siteConfig.tagline}
-          </p>
+          <div>
+            <h1 className="font-heading text-[2.15rem] font-black leading-[1.05] tracking-tight text-white min-[375px]:text-4xl sm:text-5xl sm:leading-[0.98] md:text-6xl lg:text-7xl xl:text-[5.5rem] xl:leading-[0.95]">
+              <span className="block">
+                Professional Property{" "}
+                <span className="text-fresh-300">Services</span>
+              </span>
+              <span className="block">Built Around</span>
+              <span className="block">
+                <span className="text-fresh-300">Reliability</span>
+              </span>
+            </h1>
+            <p className="mt-6 max-w-xl text-balance text-[0.65rem] font-medium uppercase tracking-[0.12em] text-fresh-300 sm:mt-8 sm:text-xs sm:tracking-[0.18em] md:text-sm">
+              {siteConfig.tagline}
+            </p>
+          </div>
           <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 lg:justify-start">
             <Button
               asChild
