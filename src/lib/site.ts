@@ -1,3 +1,12 @@
+/**
+ * Base URL for large media (videos) hosted on Vercel Blob rather than committed
+ * to the repo. Override per-environment with NEXT_PUBLIC_MEDIA_BASE_URL; the
+ * fallback points at the production Blob store so builds work without extra env.
+ */
+const mediaBase =
+  process.env.NEXT_PUBLIC_MEDIA_BASE_URL ??
+  "https://exqtua0v7kdbdrpj.public.blob.vercel-storage.com/videos";
+
 export const siteConfig = {
   name: "Fresh Edges Services Ltd",
   brandName: "Fresh Edges Services",
@@ -82,14 +91,14 @@ export const siteConfig = {
     appleIcon: "/apple-icon.png",
     faviconPng: "/favicon.png",
     story: "/story.jpg",
-    heroVideo: "/hero.mp4",
-    cityVideo: "/city.mp4",
-    aboutBannerVideo: "/about_banner.mp4",
-    impactVideo: "/impact.mp4",
-    heroRightVideo: "/hero_right.mp4",
-    joinUsVideo: "/join_us.mp4",
-    impactCanadaVideo: "/impact_canada.mp4",
-    chooseVideo: "/choose.mp4",
+    heroVideo: `${mediaBase}/hero.mp4`,
+    cityVideo: `${mediaBase}/city.mp4`,
+    aboutBannerVideo: `${mediaBase}/about_banner.mp4`,
+    impactVideo: `${mediaBase}/impact.mp4`,
+    heroRightVideo: `${mediaBase}/hero_right.mp4`,
+    joinUsVideo: `${mediaBase}/join_us.mp4`,
+    impactCanadaVideo: `${mediaBase}/impact_canada.mp4`,
+    chooseVideo: `${mediaBase}/choose.mp4`,
   },
   logoVersion: "5",
   faviconVersion: "3",
