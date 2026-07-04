@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/layout/container";
+import { SectionCta } from "@/components/layout/section-cta";
 import { FramedImage } from "@/components/layout/framed-image";
 import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
@@ -68,6 +69,13 @@ export function IntroSection() {
               </p>
             </div>
           </div>
+          <SectionCta
+            label="Book Service"
+            secondaryLabel="View Services"
+            secondaryHref="/services"
+            align="left"
+            className="mt-2 sm:mt-2"
+          />
         </motion.div>
       </Container>
     </section>

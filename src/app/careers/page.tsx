@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FramedImage } from "@/components/layout/framed-image";
+import { FramedVideo } from "@/components/layout/framed-video";
 import Link from "next/link";
 import { CheckCircle2, Mail, ArrowRight } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
@@ -9,6 +10,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { BackgroundVideo } from "@/components/sections/background-video";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -24,9 +26,15 @@ export const metadata: Metadata = createMetadata({
 export default function CareersPage() {
   return (
     <>
-      <section className="page-hero bg-forest-600">
-        <Container>
-          <Breadcrumbs items={[{ label: "Careers" }]} />
+      <section className="page-hero relative overflow-hidden">
+        <BackgroundVideo
+          src={images.joinUsVideo}
+          poster={images.career}
+          overlayClassName="bg-forest-600/90"
+          priority
+        />
+        <Container className="relative">
+          <Breadcrumbs items={[{ label: "Careers" }]} variant="light" />
           <h1 className="page-title mt-4">
             Build Your Future With Fresh Edges Services
           </h1>
@@ -119,12 +127,12 @@ export default function CareersPage() {
             </ul>
           </div>
 
-          <FramedImage
-            src={images.join}
-            alt="Join the Fresh Edges team in Edmonton"
+          <FramedVideo
+            src={images.joinUsVideo}
+            poster={images.join}
+            layout="portrait"
             shadowSide="left"
             maxWidthClass="max-w-[min(100%,340px)] sm:max-w-[340px] lg:max-w-[400px] xl:max-w-[440px]"
-            sizes="(max-width: 1024px) 340px, 440px"
             className="lg:ml-auto"
           />
         </Container>
@@ -156,7 +164,7 @@ export default function CareersPage() {
               </div>
               <Button asChild size="lg" className="mt-8 h-12 bg-forest-600 px-8 hover:bg-forest-700">
                 <Link href={`mailto:${siteConfig.careersEmail}?subject=Career%20Inquiry`}>
-                  Send your resume
+                  Send Resume
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
                 </Link>
               </Button>
@@ -169,8 +177,9 @@ export default function CareersPage() {
       </Section>
 
       <CtaSection
-        title="Questions about careers at Fresh Edges?"
-        description="Reach out to our team. We'd be glad to hear from you."
+        title="Need property care while we grow our team?"
+        description="We're hiring and serving Alberta. Book reliable cleaning, maintenance, and seasonal services today."
+        buttonLabel="Book Service"
       />
     </>
   );

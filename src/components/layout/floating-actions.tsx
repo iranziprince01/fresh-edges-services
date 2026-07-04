@@ -44,7 +44,7 @@ export function FloatingActions() {
       >
         <Link href="/quote" aria-label="Book a service">
           <MessageSquare className="h-5 w-5" aria-hidden />
-          <span className="hidden sm:inline">Book a Service</span>
+          <span className="hidden sm:inline">Book Service</span>
         </Link>
       </Button>
     </div>

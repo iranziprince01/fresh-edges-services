@@ -74,8 +74,8 @@ export default async function BlogPostPage({ params }: Props) {
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-              <Button asChild className="w-full bg-forest-600 hover:bg-forest-700 sm:w-auto">
-                <Link href="/quote">Get a Free Quote</Link>
+              <Button asChild className="w-full bg-forest-600 font-semibold hover:bg-forest-700 sm:w-auto">
+                <Link href="/quote">Book Service</Link>
               </Button>
               <Button asChild variant="outline" className="w-full sm:w-auto">
                 <Link href="/blog">Back to Blog</Link>

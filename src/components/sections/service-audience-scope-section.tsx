@@ -1,11 +1,12 @@
 import { CheckCircle2 } from "lucide-react";
-import { BookServiceButton } from "@/components/layout/book-service-button";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { SectionCta } from "@/components/layout/section-cta";
 
 type ServiceAudienceScopeCardsProps = {
   audience: string[];
   included: string[];
+  ctaLabel?: string;
 };
 
 function AudienceCard({
@@ -78,14 +79,13 @@ export function ServiceAudienceScopeCards({
 export function ServiceAudienceScopeSection({
   audience,
   included,
+  ctaLabel = "Book Service",
 }: ServiceAudienceScopeCardsProps) {
   return (
     <Section variant="muted">
       <Container>
         <ServiceAudienceScopeCards audience={audience} included={included} />
-        <div className="mt-10 flex justify-center sm:mt-14">
-          <BookServiceButton className="h-12 w-full px-8 text-base sm:w-auto" />
-        </div>
+        <SectionCta label={ctaLabel} />
       </Container>
     </Section>
   );

@@ -16,7 +16,7 @@ export const bookingFormSchema = z.object({
 
 export type BookingFormValues = z.infer<typeof bookingFormSchema>;
 
-/** @deprecated Use bookingFormSchema — kept for any legacy imports */
+/** @deprecated Use bookingFormSchema. Kept for any legacy imports. */
 export const quoteFormSchema = bookingFormSchema;
 export type QuoteFormValues = BookingFormValues;
 

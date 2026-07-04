@@ -32,7 +32,7 @@ export default function QuotePage() {
             sizes="100vw"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/90 via-forest-600/90 to-forest-700/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/95 via-forest-600/95 to-forest-700/90" />
         </div>
 
         <Container className="relative">

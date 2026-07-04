@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/container";
-import { FramedImage } from "@/components/layout/framed-image";
+import { FramedVideo } from "@/components/layout/framed-video";
 import { Section } from "@/components/layout/section";
+import { SectionCta } from "@/components/layout/section-cta";
 import { SectionHeader } from "@/components/layout/section-header";
 import { whyChooseUs } from "@/data/company";
 import { images } from "@/lib/images";
@@ -33,16 +34,22 @@ export function WhyChooseUsSection() {
             ))}
           </ul>
 
-          <p className="mt-10 text-sm font-medium text-muted-foreground sm:mt-12 md:text-base lg:mt-14">
-            Your trusted long-term property service partner.
+          <p className="mt-8 text-sm font-medium text-muted-foreground sm:mt-10 md:text-base">
+            Your trusted long-term property service partner across Alberta.
           </p>
+          <SectionCta
+            label="Book Service"
+            align="left"
+            className="mt-6 sm:mt-8"
+          />
         </div>
 
-        <FramedImage
-          src={images.whyChooseUs}
-          alt="Fresh Edges professional property care team at work"
+        <FramedVideo
+          src={images.chooseVideo}
+          poster={images.whyChooseUs}
+          layout="portrait"
           shadowSide="left"
-          sizes="(max-width: 1024px) 340px, 400px"
+          maxWidthClass="max-w-[min(100%,340px)] sm:max-w-[340px] lg:max-w-[400px]"
           className="lg:mx-0"
         />
       </Container>

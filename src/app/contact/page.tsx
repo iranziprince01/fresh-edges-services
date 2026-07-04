@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+import { images } from "@/lib/images";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { SectionCta } from "@/components/layout/section-cta";
 import { ContactForm } from "@/components/forms/contact-form";
 import { ContactMap } from "@/components/sections/contact-map";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,9 +22,21 @@ export const metadata: Metadata = createMetadata({
 export default function ContactPage() {
   return (
     <>
-      <section className="page-hero bg-forest-600">
-        <Container>
-          <Breadcrumbs items={[{ label: "Contact" }]} />
+      <section className="page-hero relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src={images.contactBanner}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+            aria-hidden
+          />
+          <div className="absolute inset-0 bg-forest-600/90" aria-hidden />
+        </div>
+        <Container className="relative">
+          <Breadcrumbs items={[{ label: "Contact" }]} variant="light" />
           <h1 className="page-title mt-4">Let&apos;s Work Together</h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
             Whether you need one-time support or long-term property maintenance solutions, our
@@ -138,6 +153,11 @@ export default function ContactPage() {
               <ContactMap className="min-h-0" />
             </div>
           </div>
+          <SectionCta
+            label="Book Service"
+            secondaryLabel="Call Us"
+            secondaryHref={siteConfig.phoneHref}
+          />
         </Container>
       </Section>
     </>

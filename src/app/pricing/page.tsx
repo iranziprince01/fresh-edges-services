@@ -37,7 +37,7 @@ export default function PricingPage() {
             Every property is unique. We provide transparent, customized quotes, never one-size-fits-all pricing.
           </p>
           <Button asChild size="lg" className="mt-6 w-full bg-fresh-500 text-forest-950 hover:bg-fresh-400 sm:mt-8 sm:w-auto">
-            <Link href="/quote">Request Free Quote</Link>
+            <Link href="/quote">Get Free Quote</Link>
           </Button>
         </Container>
       </section>
@@ -63,9 +63,9 @@ export default function PricingPage() {
         <Container>
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              { title: "Residential", description: "Homes, townhouses, and condos with recurring or one-time cleans tailored to your space.", cta: "Get Home Quote" },
-              { title: "Commercial", description: "Offices, retail, and facilities with scalable programs and flexible scheduling.", cta: "Get Business Quote" },
-              { title: "Seasonal", description: "Snow contracts, landscaping packages, and bundled year-round maintenance.", cta: "Get Seasonal Quote" },
+              { title: "Residential", description: "Homes, townhouses, and condos with recurring or one-time cleans tailored to your space.", cta: "Get Free Quote" },
+              { title: "Commercial", description: "Offices, retail, and facilities with scalable programs and flexible scheduling.", cta: "Get Free Quote" },
+              { title: "Seasonal", description: "Snow contracts, landscaping packages, and bundled year-round maintenance.", cta: "Get Free Quote" },
             ].map((tier) => (
               <Card key={tier.title} className="border-border/60">
                 <CardContent className="flex h-full flex-col p-6">
@@ -81,7 +81,11 @@ export default function PricingPage() {
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection
+        title="Ready for transparent pricing on your property?"
+        description="Request a free custom quote tailored to your space, schedule, and service needs."
+        buttonLabel="Get Free Quote"
+      />
     </>
   );
 }

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/layout/container";
-import { FramedImage } from "@/components/layout/framed-image";
+import { FramedVideo } from "@/components/layout/framed-video";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { SectionCta } from "@/components/layout/section-cta";
+import { BackgroundVideo } from "@/components/sections/background-video";
 import { CtaSection } from "@/components/sections/cta-section";
 import { ImpactContributionCards } from "@/components/sections/impact-contribution-cards";
 import { images } from "@/lib/images";
@@ -19,9 +21,15 @@ export const metadata: Metadata = createMetadata({
 export default function ImpactPage() {
   return (
     <>
-      <section className="page-hero bg-forest-600">
-        <Container>
-          <Breadcrumbs items={[{ label: "Impact" }]} />
+      <section className="page-hero relative overflow-hidden">
+        <BackgroundVideo
+          src={images.impactCanadaVideo}
+          poster={images.cleaner}
+          overlayClassName="bg-forest-600/90"
+          priority
+        />
+        <Container className="relative">
+          <Breadcrumbs items={[{ label: "Impact" }]} variant="light" />
           <h1 className="page-title mt-4">
             Building Business While Building Community
           </h1>
@@ -55,31 +63,45 @@ export default function ImpactPage() {
                 contributing to their long-term success.
               </p>
             </div>
+            <SectionCta
+              label="Book Service"
+              align="left"
+              className="mt-8 sm:mt-10"
+            />
           </div>
 
-          <FramedImage
-            src={images.cleaner}
-            alt="Fresh Edges team member supporting community employment opportunities"
+          <FramedVideo
+            src={images.impactCanadaVideo}
+            poster={images.cleaner}
+            layout="portrait"
             shadowSide="left"
-            sizes="(max-width: 1024px) 340px, 440px"
+            maxWidthClass="max-w-[min(100%,340px)] sm:max-w-[340px] lg:max-w-[440px]"
             className="lg:mx-0"
           />
         </Container>
       </Section>
 
-      <Section variant="muted">
-        <Container>
+      <Section className="relative overflow-hidden !bg-transparent">
+        <BackgroundVideo
+          src={images.impactVideo}
+          poster={images.cleaner}
+          baseClassName="bg-forest-100"
+          overlayClassName="bg-forest-100/85"
+        />
+        <Container className="relative">
           <SectionHeader
             title="How we contribute"
             description="Our growth should create opportunities for others to grow as well. We believe when businesses create opportunity, communities become stronger."
           />
           <ImpactContributionCards />
+          <SectionCta label="Book Service" />
         </Container>
       </Section>
 
       <CtaSection
         title="Partner with a company that invests in community"
         description="Whether you need property services or want to join our team, we'd be glad to connect."
+        buttonLabel="Book Service"
       />
     </>
   );

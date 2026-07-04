@@ -20,10 +20,10 @@ const sections = [
     title: "Information We Collect",
     content: `When you interact with ${siteConfig.name}, we may collect the following types of personal information:`,
     items: [
-      "Contact details — your name, email address, phone number, and mailing address",
+      "Contact details: your name, email address, phone number, and mailing address",
       "Property and service information submitted through our booking and contact forms",
-      "Communications — records of emails, calls, or messages you send us",
-      "Website usage data — pages visited, browser type, device information, and IP address collected through cookies and analytics tools",
+      "Communications: records of emails, calls, or messages you send us",
+      "Website usage data: pages visited, browser type, device information, and IP address collected through cookies and analytics tools",
     ],
   },
   {
@@ -79,8 +79,8 @@ const sections = [
     content:
       "Our website uses cookies and similar technologies to improve your browsing experience:",
     items: [
-      "Essential cookies — required for site functionality such as form submissions",
-      "Analytics cookies — help us understand how visitors use our site so we can improve it (e.g., Google Analytics)",
+      "Essential cookies: required for site functionality such as form submissions",
+      "Analytics cookies: help us understand how visitors use our site so we can improve it (e.g., Google Analytics)",
       "You can control cookie preferences through your browser settings at any time",
     ],
   },
@@ -180,7 +180,7 @@ export default function PrivacyPage() {
 
           <p className="mt-10 text-center text-sm text-muted-foreground sm:mt-14">
             This policy applies to {siteConfig.url} and all services provided by{" "}
-            {siteConfig.name}. We may update this policy periodically — the
+            {siteConfig.name}. We may update this policy periodically. The
             &ldquo;Last updated&rdquo; date above reflects the most recent revision.
           </p>
         </Container>

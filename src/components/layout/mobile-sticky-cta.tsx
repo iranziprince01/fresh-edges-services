@@ -29,7 +29,7 @@ export function MobileStickyCta() {
           showIcon={false}
           className="h-12 flex-1"
         >
-          Book a Service
+          Book Service
         </BookServiceButton>
       </div>
     </div>

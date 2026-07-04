@@ -196,7 +196,7 @@ export function QuoteForm({ className }: { className?: string }) {
           </>
         ) : (
           <>
-            Request Service
+            Book Service
             <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
           </>
         )}

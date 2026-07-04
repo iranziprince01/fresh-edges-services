@@ -7,6 +7,7 @@ import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { SectionCta } from "@/components/layout/section-cta";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -55,14 +56,25 @@ export default function IndustriesPage() {
                       ) : null;
                     })}
                   </div>
+                  <Link
+                    href="/quote"
+                    className="mt-5 inline-flex text-sm font-semibold text-forest-600 hover:text-forest-700"
+                  >
+                    Book Service →
+                  </Link>
                 </CardContent>
               </Card>
             ))}
           </div>
+          <SectionCta label="Book Service" />
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection
+        title="Need property care tailored to your industry?"
+        description="Tell us about your facility and we'll recommend the right service plan for your sector."
+        buttonLabel="Book Service"
+      />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/container";
 import { FramedImage } from "@/components/layout/framed-image";
 import { Section } from "@/components/layout/section";
+import { SectionCta } from "@/components/layout/section-cta";
 import { SectionHeader } from "@/components/layout/section-header";
 
 type ServiceBenefitsSectionProps = {
@@ -8,6 +9,7 @@ type ServiceBenefitsSectionProps = {
   benefits: string[];
   image: string;
   imageAlt: string;
+  ctaLabel?: string;
 };
 
 export function ServiceBenefitsSection({
@@ -15,6 +17,7 @@ export function ServiceBenefitsSection({
   benefits,
   image,
   imageAlt,
+  ctaLabel = "Get Free Quote",
 }: ServiceBenefitsSectionProps) {
   return (
     <Section>
@@ -51,6 +54,7 @@ export function ServiceBenefitsSection({
               </li>
             ))}
           </ul>
+          <SectionCta label={ctaLabel} align="left" className="mt-8 sm:mt-10" />
         </div>
       </Container>
     </Section>

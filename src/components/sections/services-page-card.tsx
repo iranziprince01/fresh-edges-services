@@ -36,15 +36,21 @@ export function ServicesPageCard({ card }: ServicesPageCardProps) {
           {service.description}
         </p>
 
-        <Button
-          asChild
-          className="mt-5 h-10 w-full bg-forest-600 hover:bg-forest-700 sm:w-auto"
-        >
-          <Link href={`/services/${card.slug}`}>
-            Learn more
-            <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
-          </Link>
-        </Button>
+        <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+          <Button asChild className="h-10 w-full bg-forest-600 font-semibold hover:bg-forest-700 sm:w-auto">
+            <Link href="/quote">
+              Book Service
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="h-10 w-full border-forest-300 font-semibold text-forest-700 hover:bg-forest-50 sm:w-auto"
+          >
+            <Link href={`/services/${card.slug}`}>Learn More</Link>
+          </Button>
+        </div>
       </div>
     </article>
   );

@@ -31,11 +31,24 @@ const socialLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const locationLine = `${siteConfig.address.city}, ${siteConfig.address.province}, ${siteConfig.address.country}`;
+  const locationLine = `${siteConfig.address.province}, ${siteConfig.address.country}`;
 
   return (
-    <footer className="border-t border-forest-700/50 bg-forest-600 text-white">
-      <Container className="py-16">
+    <footer className="relative overflow-hidden border-t border-forest-700/50 bg-forest-600 text-white">
+      <div className="footer-motion pointer-events-none absolute inset-0 opacity-5" aria-hidden>
+        <span className="footer-orb footer-orb-a" />
+        <span className="footer-orb footer-orb-b" />
+        <span className="footer-orb footer-orb-c" />
+        <span className="footer-ring footer-ring-a" />
+        <span className="footer-ring footer-ring-b" />
+        <span className="footer-beam footer-beam-a" />
+        <span className="footer-beam footer-beam-b" />
+        <span className="footer-dot footer-dot-a" />
+        <span className="footer-dot footer-dot-b" />
+        <span className="footer-dot footer-dot-c" />
+      </div>
+
+      <Container className="relative z-10 py-16">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex transition-opacity hover:opacity-90">

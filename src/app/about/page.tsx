@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { FramedImage } from "@/components/layout/framed-image";
+import { FramedVideo } from "@/components/layout/framed-video";
 import { MapPin } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { BookServiceButton } from "@/components/layout/book-service-button";
+import { SectionCta } from "@/components/layout/section-cta";
+import { BackgroundVideo } from "@/components/sections/background-video";
 import { CtaSection } from "@/components/sections/cta-section";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
 import {
@@ -29,9 +32,15 @@ export const metadata: Metadata = createMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="page-hero bg-forest-600">
-        <Container>
-          <Breadcrumbs items={[{ label: "About" }]} />
+      <section className="page-hero relative overflow-hidden">
+        <BackgroundVideo
+          src={images.aboutBannerVideo}
+          poster={images.story}
+          overlayClassName="bg-forest-600/85"
+          priority
+        />
+        <Container className="relative">
+          <Breadcrumbs items={[{ label: "About" }]} variant="light" />
           <h1 className="page-title mt-4">
             Built On Service, Driven By Excellence.
           </h1>
@@ -80,6 +89,11 @@ export default function AboutPage() {
                   </span>
                 </p>
               </div>
+              <SectionCta
+                label="Book Service"
+                align="left"
+                className="mt-8 sm:mt-10"
+              />
             </div>
           </div>
 
@@ -139,9 +153,7 @@ export default function AboutPage() {
               </div>
             </article>
           </div>
-          <div className="mt-14 flex justify-center">
-            <BookServiceButton className="h-12 px-8 text-base" />
-          </div>
+          <SectionCta label="Book Service" />
         </Container>
       </Section>
 
@@ -195,40 +207,53 @@ export default function AboutPage() {
               </div>
             </article>
           </div>
+          <SectionCta label="Book Service" />
         </Container>
       </Section>
 
       <Section variant="muted">
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_min(42%,440px)] lg:gap-16">
             <div>
               <SectionHeader
                 eyebrow="Service areas"
-                title="Serving the greater Edmonton region"
-                description="From downtown commercial properties to suburban homes, we deliver the same consistent quality across Alberta's capital region."
+                title="Serving cities across Alberta"
+                description="From Edmonton and Calgary to communities province-wide, Fresh Edges delivers consistent property care for homes and businesses in every city in Alberta."
                 align="left"
                 spacing="tight"
                 className="max-w-none"
               />
-              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                {siteConfig.serviceAreas.map((area) => (
-                  <li key={area} className="flex items-center gap-2.5 text-sm">
-                    <MapPin className="h-4 w-4 shrink-0 text-forest-600 dark:text-fresh-400" aria-hidden />
-                    {area}
+              <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4">
+                {siteConfig.albertaCities.map((area) => (
+                  <li key={area}>
+                    <span className="inline-flex w-full items-center gap-2 rounded-lg border border-forest-200/80 bg-white px-3 py-2.5 text-sm font-medium text-foreground shadow-[0_2px_8px_rgba(20,83,45,0.04)]">
+                      <MapPin className="h-3.5 w-3.5 shrink-0 text-forest-600" aria-hidden />
+                      {area}
+                    </span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-14">
-                <BookServiceButton className="h-11 px-8" />
-              </div>
+              <p className="mt-5 text-sm text-muted-foreground">
+                Plus surrounding towns and communities across Alberta. Not sure if we serve your area?{" "}
+                <Link href="/contact" className="font-medium text-forest-600 hover:text-forest-700">
+                  Contact us
+                </Link>
+                .
+              </p>
+              <SectionCta
+                label="Book Service"
+                align="left"
+                className="mt-8 sm:mt-10"
+              />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image
-                src={images.edmontonSkyline}
-                alt="Edmonton skyline and river valley"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+            <div className="min-h-[280px] lg:min-h-0">
+              <FramedVideo
+                src={images.cityVideo}
+                poster={images.edmontonSkyline}
+                fillHeight
+                shadowSide="left"
+                maxWidthClass="max-w-none"
+                className="h-full"
               />
             </div>
           </div>
@@ -245,10 +270,16 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl">
             <FaqAccordion items={faqs} />
           </div>
+          <SectionCta label="Get Free Quote" />
         </Container>
       </Section>
 
-      <CtaSection variant="muted" />
+      <CtaSection
+        variant="muted"
+        buttonLabel="Book Service"
+        title="Ready to experience Fresh Edges excellence?"
+        description="Join homeowners and businesses across Alberta who trust us for reliable, professional property care."
+      />
     </>
   );
 }

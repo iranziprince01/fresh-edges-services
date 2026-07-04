@@ -16,6 +16,7 @@ import { ServiceAudienceScopeSection } from "@/components/sections/service-audie
 import { FramedImage } from "@/components/layout/framed-image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionCta } from "@/components/layout/section-cta";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -65,15 +66,15 @@ export default async function ServicePage({ params }: Props) {
             sizes="100vw"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/90 via-forest-600/90 to-forest-700/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/95 via-forest-600/95 to-forest-700/90" />
         </div>
         <Container className="relative">
           <div className="flex min-w-0 max-w-3xl flex-col gap-4 sm:gap-6">
             <h1 className="page-title font-bold">{service.shortTitle}</h1>
             <p className="text-base leading-relaxed text-white/85 sm:text-lg">{service.description}</p>
-            <Button asChild size="lg" className="h-12 w-full bg-white px-8 text-forest-600 hover:bg-white/90 sm:w-fit">
+            <Button asChild size="lg" className="h-12 w-full bg-white px-8 font-semibold text-forest-600 hover:bg-white/90 sm:w-fit">
               <Link href="/quote">
-                Get a Free Quote
+                Book Service
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden />
               </Link>
             </Button>
@@ -97,6 +98,11 @@ export default async function ServicePage({ params }: Props) {
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              <SectionCta
+                label="Get Free Quote"
+                align="left"
+                className="mt-8 sm:mt-10"
+              />
             </div>
             <FramedImage
               src={service.heroImage}
@@ -113,12 +119,14 @@ export default async function ServicePage({ params }: Props) {
       <ServiceAudienceScopeSection
         audience={service.audience}
         included={service.included}
+        ctaLabel="Book Service"
       />
 
       <ServiceBenefitsSection
         benefits={service.benefits}
         image={service.benefitsImage ?? service.heroImage}
         imageAlt={`${service.shortTitle} by Fresh Edges Services`}
+        ctaLabel="Get Free Quote"
       />
 
       <Section variant="muted">
@@ -137,12 +145,14 @@ export default async function ServicePage({ params }: Props) {
               </Card>
             ))}
           </div>
+          <SectionCta label="Book Service" />
         </Container>
       </Section>
 
       <CtaSection
         title={`Interested in ${service.shortTitle}?`}
         description="Share your property details and we'll respond within one business day with a clear proposal."
+        buttonLabel="Book Service"
       />
     </>
   );

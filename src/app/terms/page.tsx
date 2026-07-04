@@ -72,10 +72,10 @@ const sections = [
       "We understand plans change. Our cancellation policies are designed to be fair to both parties:",
     ],
     items: [
-      "One-time services — cancellations with less than 24 hours notice may be subject to a cancellation fee",
-      "Recurring service contracts — cancellation terms and required notice periods are specified in your service agreement",
-      "Seasonal contracts (e.g., snow removal) — may require advance written notice for cancellation as outlined at signing",
-      "Weather-related rescheduling — services affected by severe weather will be rescheduled at no additional cost",
+      "One-time services: cancellations with less than 24 hours notice may be subject to a cancellation fee",
+      "Recurring service contracts: cancellation terms and required notice periods are specified in your service agreement",
+      "Seasonal contracts (e.g., snow removal) may require advance written notice for cancellation as outlined at signing",
+      "Weather-related rescheduling: services affected by severe weather will be rescheduled at no additional cost",
     ],
   },
   {

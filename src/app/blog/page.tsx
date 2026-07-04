@@ -6,6 +6,8 @@ import { blogPosts } from "@/data/blog";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { SectionCta } from "@/components/layout/section-cta";
+import { CtaSection } from "@/components/sections/cta-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -50,8 +52,15 @@ export default function BlogPage() {
               </Link>
             ))}
           </div>
+          <SectionCta label="Book Service" />
         </Container>
       </Section>
+
+      <CtaSection
+        title="Need help maintaining your property?"
+        description="Turn expert advice into reliable service. Book Fresh Edges for cleaning, maintenance, and seasonal care across Alberta."
+        buttonLabel="Book Service"
+      />
     </>
   );
 }

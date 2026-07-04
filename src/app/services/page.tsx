@@ -4,6 +4,7 @@ import { createMetadata } from "@/lib/seo";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { SectionCta } from "@/components/layout/section-cta";
 import { ServicesPageCard } from "@/components/sections/services-page-card";
 import { CtaSection } from "@/components/sections/cta-section";
 import { serviceListingCards } from "@/data/services";
@@ -31,7 +32,7 @@ export default function ServicesPage() {
             sizes="100vw"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/90 via-forest-600/90 to-forest-700/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/95 via-forest-600/95 to-forest-700/90" />
         </div>
 
         <Container className="relative">
@@ -43,6 +44,14 @@ export default function ServicesPage() {
             Fresh Edges Services offers year-round professional property care solutions designed
             to simplify property management and maintain high-quality spaces.
           </p>
+          <div className="mt-8">
+            <SectionCta
+              label="Book Service"
+              variant="light"
+              className="mt-0 sm:mt-0 sm:justify-start"
+              align="left"
+            />
+          </div>
         </Container>
       </section>
 
@@ -53,10 +62,16 @@ export default function ServicesPage() {
               <ServicesPageCard key={card.slug} card={card} />
             ))}
           </div>
+          <SectionCta label="Get Free Quote" />
         </Container>
       </Section>
 
-      <CtaSection variant="muted" />
+      <CtaSection
+        variant="muted"
+        title="Ready to simplify your property care?"
+        description="Choose a service above or request a free quote. We'll recommend the right plan for your property."
+        buttonLabel="Get Free Quote"
+      />
     </>
   );
 }

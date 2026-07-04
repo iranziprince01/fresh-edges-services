@@ -1,4 +1,4 @@
-/** Verified Unsplash image IDs — all return HTTP 200 via images.unsplash.com */
+/** Verified Unsplash image IDs. All return HTTP 200 via images.unsplash.com. */
 import { siteConfig } from "@/lib/site";
 
 export function unsplash(
@@ -11,7 +11,16 @@ export function unsplash(
 
 export const images = {
   hero: unsplash("photo-1600880292203-757bb62b4baf", 1920),
-  heroRight: "/hero_right.png",
+  heroVideo: `${siteConfig.assets.heroVideo}?v=${siteConfig.heroVideoVersion}`,
+  cityVideo: `${siteConfig.assets.cityVideo}?v=${siteConfig.cityVideoVersion}`,
+  aboutBannerVideo: `${siteConfig.assets.aboutBannerVideo}?v=${siteConfig.aboutBannerVideoVersion}`,
+  impactVideo: `${siteConfig.assets.impactVideo}?v=${siteConfig.impactVideoVersion}`,
+  heroRightVideo: `${siteConfig.assets.heroRightVideo}?v=${siteConfig.heroRightVideoVersion}`,
+  joinUsVideo: `${siteConfig.assets.joinUsVideo}?v=${siteConfig.joinUsVideoVersion}`,
+  impactCanadaVideo: `${siteConfig.assets.impactCanadaVideo}?v=${siteConfig.impactCanadaVideoVersion}`,
+  chooseVideo: `${siteConfig.assets.chooseVideo}?v=${siteConfig.chooseVideoVersion}`,
+  /** Static poster fallback for hero media (team photo). */
+  heroRight: "/professional.jpg",
   intro: "/second.jpg",
   whyChooseUs: "/professional.jpg",
   commercial: "/commercial.jpg",
@@ -29,6 +38,7 @@ export const images = {
   coreValue: "/value.jpg",
   servicesBanner: "/servie_banner.jpg",
   bookingBanner: "/booking.jpg",
+  contactBanner: "/contact_banner.jpg",
   og: unsplash("photo-1600880292203-757bb62b4baf", 1200, "&h=630"),
 
   edmontonSkyline: unsplash("photo-1477959858617-67f85cf4f1df", 1200),

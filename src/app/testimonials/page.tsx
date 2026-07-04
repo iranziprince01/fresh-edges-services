@@ -7,6 +7,7 @@ import { reviewSchema } from "@/lib/schemas";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { SectionCta } from "@/components/layout/section-cta";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -59,10 +60,15 @@ export default function TestimonialsPage() {
               </Card>
             ))}
           </div>
+          <SectionCta label="Book Service" />
         </Container>
       </Section>
 
-      <CtaSection />
+      <CtaSection
+        title="Ready to experience the Fresh Edges difference?"
+        description="Book your free quote and see why Alberta property owners recommend us."
+        buttonLabel="Book Service"
+      />
     </>
   );
 }

@@ -171,7 +171,7 @@ export async function sendBookingEmail(data: BookingFormValues) {
     from: `"${siteConfig.name}" <${user}>`,
     to,
     replyTo: data.email,
-    subject: `[Booking] ${serviceLabel} — ${data.fullName}`,
+    subject: `[Booking] ${serviceLabel}: ${data.fullName}`,
     html,
     text: [
       `New booking request from ${data.fullName}`,
