@@ -43,4 +43,6 @@ next-env.d.ts
 
 # large media — hosted on Vercel Blob, not committed to the repo
 /public/*.mp4
+/public/*.jpg
 /.media-optimized/
+/.image-optimized/

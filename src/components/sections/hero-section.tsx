@@ -63,7 +63,7 @@ export function HeroSection() {
           >
             <FramedVideo
               src={images.heroRightVideo}
-              poster={images.heroRight}
+              poster={images.heroRightPoster}
               layout="portrait"
               shadowSide="left"
               ringClassName="ring-white/25"

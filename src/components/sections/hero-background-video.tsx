@@ -7,7 +7,7 @@ export function HeroBackgroundVideo() {
   return (
     <BackgroundVideo
       src={images.heroVideo}
-      poster={images.heroRight}
+      poster={images.heroPoster}
       overlayClassName="bg-forest-600/90"
       priority
     />

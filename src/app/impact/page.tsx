@@ -24,7 +24,7 @@ export default function ImpactPage() {
       <section className="page-hero relative overflow-hidden">
         <BackgroundVideo
           src={images.impactCanadaVideo}
-          poster={images.cleaner}
+          poster={images.impactCanadaPoster}
           overlayClassName="bg-forest-600/90"
           priority
         />
@@ -71,9 +71,9 @@ export default function ImpactPage() {
           </div>
 
           <FramedVideo
-            src={images.impactCanadaVideo}
-            poster={images.cleaner}
-            layout="portrait"
+          src={images.impactCanadaVideo}
+          poster={images.impactCanadaPoster}
+          layout="portrait"
             shadowSide="left"
             maxWidthClass="max-w-[min(100%,340px)] sm:max-w-[340px] lg:max-w-[440px]"
             className="lg:mx-0"
@@ -84,7 +84,7 @@ export default function ImpactPage() {
       <Section className="relative overflow-hidden !bg-transparent">
         <BackgroundVideo
           src={images.impactVideo}
-          poster={images.cleaner}
+          poster={images.impactPoster}
           baseClassName="bg-forest-100"
           overlayClassName="bg-forest-100/85"
         />

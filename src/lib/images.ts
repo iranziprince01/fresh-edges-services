@@ -9,6 +9,8 @@ export function unsplash(
   return `https://images.unsplash.com/${photoId}?w=${width}&q=80&auto=format&fit=crop${extra}`;
 }
 
+const img = `${siteConfig.mediaBaseUrl}/images`;
+
 export const images = {
   hero: unsplash("photo-1600880292203-757bb62b4baf", 1920),
   heroVideo: `${siteConfig.assets.heroVideo}?v=${siteConfig.heroVideoVersion}`,
@@ -19,26 +21,28 @@ export const images = {
   joinUsVideo: `${siteConfig.assets.joinUsVideo}?v=${siteConfig.joinUsVideoVersion}`,
   impactCanadaVideo: `${siteConfig.assets.impactCanadaVideo}?v=${siteConfig.impactCanadaVideoVersion}`,
   chooseVideo: `${siteConfig.assets.chooseVideo}?v=${siteConfig.chooseVideoVersion}`,
-  /** Static poster fallback for hero media (team photo). */
-  heroRight: "/professional.jpg",
-  intro: "/second.jpg",
-  whyChooseUs: "/professional.jpg",
-  commercial: "/commercial.jpg",
-  snowRemoval: "/snow_removal.jpg",
-  snowRemovalBenefits: "/snow_removal_benefits.jpg",
-  landscapingBenefits: "/landscaping_benefits.jpg",
-  pressureWashingService: "/pressure washing.jpg",
-  pressureWashingBenefits: "/presure_washing_benefits.jpg",
-  postConstructionCleanup: "/post_cons_cleanup.jpg",
-  postConstructionCleanupBenefits: "/post_cons_cleanup_benefits.jpg",
-  cleaner: "/cleaner.jpg",
-  career: "/career.jpg",
-  join: "/join.jpg",
+  /** Video poster frames (extracted from the matching Blob videos). */
+  heroPoster: `${img}/hero_poster.jpg`,
+  heroRightPoster: `${img}/hero_right_poster.jpg`,
+  choosePoster: `${img}/choose_poster.jpg`,
+  impactPoster: `${img}/impact_poster.jpg`,
+  impactCanadaPoster: `${img}/impact_canada_poster.jpg`,
+  intro: `${img}/second.jpg`,
+  commercial: `${img}/commercial.jpg`,
+  snowRemoval: `${img}/snow_removal.jpg`,
+  snowRemovalBenefits: `${img}/snow_removal_benefits.jpg`,
+  landscapingBenefits: `${img}/landscaping_benefits.jpg`,
+  pressureWashingService: `${img}/pressure_washing.jpg`,
+  pressureWashingBenefits: `${img}/presure_washing_benefits.jpg`,
+  postConstructionCleanup: `${img}/post_cons_cleanup.jpg`,
+  postConstructionCleanupBenefits: `${img}/post_cons_cleanup_benefits.jpg`,
+  career: `${img}/career.jpg`,
+  join: `${img}/join.jpg`,
   story: `${siteConfig.assets.story}?v=${siteConfig.storyVersion}`,
-  coreValue: "/value.jpg",
-  servicesBanner: "/servie_banner.jpg",
-  bookingBanner: "/booking.jpg",
-  contactBanner: "/contact_banner.jpg",
+  coreValue: `${img}/value.jpg`,
+  servicesBanner: `${img}/servie_banner.jpg`,
+  bookingBanner: `${img}/booking.jpg`,
+  contactBanner: `${img}/contact_banner.jpg`,
   og: unsplash("photo-1600880292203-757bb62b4baf", 1200, "&h=630"),
 
   edmontonSkyline: unsplash("photo-1477959858617-67f85cf4f1df", 1200),
@@ -67,5 +71,5 @@ export const images = {
   postConstruction: unsplash("photo-1503387762-592deb58ef4e", 1920),
   propertyMaintenance: unsplash("photo-1560518883-ce09059eeffa", 1920),
 
-  processSteps: ["/01.jpg", "/02.jpg", "/03.jpg", "/04.jpg"] as const,
+  processSteps: [`${img}/01.jpg`, `${img}/02.jpg`, `${img}/03.jpg`, `${img}/04.jpg`] as const,
 } as const;

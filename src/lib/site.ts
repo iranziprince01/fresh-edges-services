@@ -1,13 +1,16 @@
 /**
- * Base URL for large media (videos) hosted on Vercel Blob rather than committed
- * to the repo. Override per-environment with NEXT_PUBLIC_MEDIA_BASE_URL; the
- * fallback points at the production Blob store so builds work without extra env.
+ * Root URL of the Vercel Blob store that hosts large media (videos + photos)
+ * instead of committing them to the repo. Override per-environment with
+ * NEXT_PUBLIC_MEDIA_BASE_URL; the fallback points at the production store so
+ * builds work without extra env. Videos live under /videos, images under /images.
  */
-const mediaBase =
+const blobBase =
   process.env.NEXT_PUBLIC_MEDIA_BASE_URL ??
-  "https://exqtua0v7kdbdrpj.public.blob.vercel-storage.com/videos";
+  "https://exqtua0v7kdbdrpj.public.blob.vercel-storage.com";
+const videoBase = `${blobBase}/videos`;
 
 export const siteConfig = {
+  mediaBaseUrl: blobBase,
   name: "Fresh Edges Services Ltd",
   brandName: "Fresh Edges Services",
   shortName: "Fresh Edges",
@@ -90,15 +93,15 @@ export const siteConfig = {
     icon: "/icon.png",
     appleIcon: "/apple-icon.png",
     faviconPng: "/favicon.png",
-    story: "/story.jpg",
-    heroVideo: `${mediaBase}/hero.mp4`,
-    cityVideo: `${mediaBase}/city.mp4`,
-    aboutBannerVideo: `${mediaBase}/about_banner.mp4`,
-    impactVideo: `${mediaBase}/impact.mp4`,
-    heroRightVideo: `${mediaBase}/hero_right.mp4`,
-    joinUsVideo: `${mediaBase}/join_us.mp4`,
-    impactCanadaVideo: `${mediaBase}/impact_canada.mp4`,
-    chooseVideo: `${mediaBase}/choose.mp4`,
+    story: `${blobBase}/images/story.jpg`,
+    heroVideo: `${videoBase}/hero.mp4`,
+    cityVideo: `${videoBase}/city.mp4`,
+    aboutBannerVideo: `${videoBase}/about_banner.mp4`,
+    impactVideo: `${videoBase}/impact.mp4`,
+    heroRightVideo: `${videoBase}/hero_right.mp4`,
+    joinUsVideo: `${videoBase}/join_us.mp4`,
+    impactCanadaVideo: `${videoBase}/impact_canada.mp4`,
+    chooseVideo: `${videoBase}/choose.mp4`,
   },
   logoVersion: "5",
   faviconVersion: "3",

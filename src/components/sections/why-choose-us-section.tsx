@@ -46,7 +46,7 @@ export function WhyChooseUsSection() {
 
         <FramedVideo
           src={images.chooseVideo}
-          poster={images.whyChooseUs}
+          poster={images.choosePoster}
           layout="portrait"
           shadowSide="left"
           maxWidthClass="max-w-[min(100%,340px)] sm:max-w-[340px] lg:max-w-[400px]"
