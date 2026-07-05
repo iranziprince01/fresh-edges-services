@@ -25,7 +25,7 @@ export default function ImpactPage() {
         <BackgroundVideo
           src={images.impactCanadaVideo}
           poster={images.impactCanadaPoster}
-          overlayClassName="bg-forest-600/90"
+          overlayClassName="bg-forest-600/85"
           priority
         />
         <Container className="relative">

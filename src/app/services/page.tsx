@@ -32,7 +32,7 @@ export default function ServicesPage() {
             sizes="100vw"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/95 via-forest-600/95 to-forest-700/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/85 via-forest-600/85 to-forest-700/85" />
         </div>
 
         <Container className="relative">
@@ -62,7 +62,6 @@ export default function ServicesPage() {
               <ServicesPageCard key={card.slug} card={card} />
             ))}
           </div>
-          <SectionCta label="Get Free Quote" />
         </Container>
       </Section>
 

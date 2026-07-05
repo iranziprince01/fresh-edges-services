@@ -20,8 +20,8 @@ export const siteConfig = {
     "Book trusted property care in Edmonton and across Alberta. Fresh Edges Services delivers commercial cleaning, residential cleaning, snow removal, landscaping, and facility maintenance with free quotes and reliable service.",
   url: "https://www.freshedges.ca",
   locale: "en_CA",
-  phone: "+1 (780) 292-5470",
-  phoneHref: "tel:+17802925470",
+  phone: "+1 (587) 501-4324",
+  phoneHref: "tel:+15875014324",
   email: "info@freshedgesservices.ca",
   careersEmail: "careers@freshedgesservices.ca",
   address: {
@@ -42,9 +42,10 @@ export const siteConfig = {
     { days: "Sunday", hours: "Closed" },
   ],
   social: {
-    facebook: "https://facebook.com/freshedgesservices",
-    instagram: "https://instagram.com/freshedgesservices",
-    linkedin: "https://linkedin.com/company/fresh-edges-services",
+    facebook:
+      "https://www.facebook.com/share/1C4EXDFLdJ/?mibextid=wwXIfr",
+    instagram:
+      "https://www.instagram.com/freshedgesservicesltd?igsh=MWdhOXVlN3NqZ2F6OQ%3D%3D&utm_source=qr",
   },
   foundedYear: 2014,
   serviceAreas: [

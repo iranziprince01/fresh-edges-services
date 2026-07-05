@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export function navItemClassName(isActive: boolean, className?: string) {
   return cn(
-    "relative rounded-lg px-4 py-2.5 text-sm font-bold transition-colors",
+    "relative rounded-lg px-4 py-2 text-sm font-bold transition-colors",
     isActive
       ? "text-forest-600 after:absolute after:right-4 after:bottom-1 after:left-4 after:h-0.5 after:rounded-full after:bg-fresh-400"
       : "text-black hover:text-forest-600",

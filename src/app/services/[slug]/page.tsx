@@ -66,7 +66,7 @@ export default async function ServicePage({ params }: Props) {
             sizes="100vw"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/95 via-forest-600/95 to-forest-700/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-600/85 via-forest-600/85 to-forest-700/85" />
         </div>
         <Container className="relative">
           <div className="flex min-w-0 max-w-3xl flex-col gap-4 sm:gap-6">
@@ -88,7 +88,7 @@ export default async function ServicePage({ params }: Props) {
             <div className="min-w-0">
               <SectionHeader
                 eyebrow="Overview"
-                title={`Professional ${service.shortTitle} in Edmonton`}
+                title={`Professional ${service.shortTitle} in Alberta`}
                 align="left"
                 spacing="tight"
                 className="max-w-none"
@@ -106,7 +106,7 @@ export default async function ServicePage({ params }: Props) {
             </div>
             <FramedImage
               src={service.heroImage}
-              alt={`${service.shortTitle} in Edmonton`}
+              alt={`${service.shortTitle} in Alberta`}
               layout="landscape"
               shadowSide="left"
               maxWidthClass="max-w-none"

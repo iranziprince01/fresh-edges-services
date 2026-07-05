@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { FramedImage } from "@/components/layout/framed-image";
 import { FramedVideo } from "@/components/layout/framed-video";
-import Link from "next/link";
-import { CheckCircle2, Mail, ArrowRight } from "lucide-react";
+import { CheckCircle2, Mail } from "lucide-react";
 import { createMetadata } from "@/lib/seo";
 import { futurePositions, whyJoinFreshEdges } from "@/data/company";
 import { siteConfig } from "@/lib/site";
@@ -13,7 +12,6 @@ import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { BackgroundVideo } from "@/components/sections/background-video";
 import { CtaSection } from "@/components/sections/cta-section";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = createMetadata({
@@ -30,7 +28,7 @@ export default function CareersPage() {
         <BackgroundVideo
           src={images.joinUsVideo}
           poster={images.career}
-          overlayClassName="bg-forest-600/90"
+          overlayClassName="bg-forest-600/85"
           priority
         />
         <Container className="relative">
@@ -162,12 +160,6 @@ export default function CareersPage() {
                   opportunities become available.
                 </p>
               </div>
-              <Button asChild size="lg" className="mt-8 h-12 bg-forest-600 px-8 hover:bg-forest-700">
-                <Link href={`mailto:${siteConfig.careersEmail}?subject=Career%20Inquiry`}>
-                  Send Resume
-                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
-                </Link>
-              </Button>
               <p className="mt-6 text-sm font-medium text-forest-600 dark:text-fresh-400">
                 Your future opportunity could start here.
               </p>

@@ -9,7 +9,7 @@ type BackgroundVideoProps = {
   poster: string;
   /** Base fill behind the video, e.g. "bg-forest-600" or "bg-forest-50". */
   baseClassName?: string;
-  /** Overlay on top of the video, e.g. "bg-forest-600/80" or "bg-forest-50/80". */
+  /** Overlay on top of the video, e.g. "bg-forest-600/85" or "bg-forest-50/85". */
   overlayClassName?: string;
   priority?: boolean;
 };

@@ -16,11 +16,11 @@ export function HeroSection() {
   const reducedMotion = usePrefersReducedMotion();
 
   return (
-    <section className="relative flex min-h-[calc(100dvh-4.25rem)] items-center sm:min-h-[calc(100dvh-5rem)] lg:min-h-[calc(100dvh-6rem)]">
+    <section className="relative flex min-h-[calc(100dvh-4rem)] items-center sm:min-h-[calc(100dvh-4.5rem)] lg:min-h-[calc(100dvh-5rem)]">
       <HeroBackgroundVideo />
 
       <Container className="relative w-full overflow-x-clip py-8 sm:py-10 lg:py-12">
-        <div className="grid w-full items-center gap-10 sm:gap-12 lg:grid-cols-[1fr_min(40%,460px)] lg:gap-10 xl:gap-14">
+        <div className="grid w-full items-center gap-10 sm:gap-12 lg:grid-cols-[1fr_min(36%,400px)] lg:gap-8 xl:gap-10">
           <motion.div
             initial={reducedMotion ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export function HeroSection() {
             initial={reducedMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto hidden w-full min-w-0 lg:flex lg:items-center lg:justify-end"
+            className="relative hidden w-full min-w-0 lg:flex lg:items-stretch lg:justify-end"
           >
             <FramedVideo
               src={images.heroRightVideo}
@@ -67,7 +67,8 @@ export function HeroSection() {
               layout="portrait"
               shadowSide="left"
               ringClassName="ring-white/25"
-              maxWidthClass="max-w-[min(100%,460px)]"
+              maxWidthClass="w-full max-w-[min(100%,380px)] xl:max-w-[min(100%,400px)]"
+              className="lg:ml-auto"
             />
           </motion.div>
         </div>

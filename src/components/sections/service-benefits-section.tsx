@@ -1,7 +1,8 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { FramedImage } from "@/components/layout/framed-image";
 import { Section } from "@/components/layout/section";
-import { SectionCta } from "@/components/layout/section-cta";
 import { SectionHeader } from "@/components/layout/section-header";
 
 type ServiceBenefitsSectionProps = {
@@ -10,6 +11,7 @@ type ServiceBenefitsSectionProps = {
   image: string;
   imageAlt: string;
   ctaLabel?: string;
+  ctaHref?: string;
 };
 
 export function ServiceBenefitsSection({
@@ -18,6 +20,7 @@ export function ServiceBenefitsSection({
   image,
   imageAlt,
   ctaLabel = "Get Free Quote",
+  ctaHref = "/quote",
 }: ServiceBenefitsSectionProps) {
   return (
     <Section>
@@ -26,11 +29,13 @@ export function ServiceBenefitsSection({
           src={image}
           alt={imageAlt}
           shadowSide="right"
+          fillHeight
           sizes="(max-width: 1024px) 340px, 400px"
-          className="self-stretch lg:mx-0"
+          maxWidthClass="max-w-none"
+          className="h-full lg:mx-0"
         />
 
-        <div className="flex min-w-0 flex-col justify-center">
+        <div className="flex min-w-0 flex-col">
           <SectionHeader
             eyebrow="Benefits"
             title={title}
@@ -53,8 +58,21 @@ export function ServiceBenefitsSection({
                 </div>
               </li>
             ))}
+            <li>
+              <Link
+                href={ctaHref}
+                className="group flex h-full items-start gap-3 rounded-lg border border-forest-600 bg-forest-600 px-4 py-4 transition-colors hover:border-forest-700 hover:bg-forest-700"
+              >
+                <ArrowRight
+                  className="mt-0.5 h-4 w-4 shrink-0 text-white transition-transform group-hover:translate-x-0.5"
+                  aria-hidden
+                />
+                <span className="text-sm font-semibold leading-relaxed text-white">
+                  {ctaLabel}
+                </span>
+              </Link>
+            </li>
           </ul>
-          <SectionCta label={ctaLabel} align="left" className="mt-8 sm:mt-10" />
         </div>
       </Container>
     </Section>

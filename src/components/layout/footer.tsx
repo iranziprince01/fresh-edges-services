@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/components/icons/social-icons";
+import { FacebookIcon, InstagramIcon } from "@/components/icons/social-icons";
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
 import { footerPromise } from "@/data/company";
@@ -26,7 +26,6 @@ const footerLinks = {
 const socialLinks = [
   { label: "Facebook", href: siteConfig.social.facebook, icon: FacebookIcon },
   { label: "Instagram", href: siteConfig.social.instagram, icon: InstagramIcon },
-  { label: "LinkedIn", href: siteConfig.social.linkedin, icon: LinkedInIcon },
 ] as const;
 
 export function Footer() {
@@ -55,7 +54,7 @@ export function Footer() {
               <Logo variant="footer" className="h-12 sm:h-14" />
             </Link>
             <div className="mt-6">
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-fresh-400">
+              <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-fresh-400">
                 Our promise
               </h3>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/75">
@@ -105,7 +104,7 @@ export function Footer() {
 
           <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:col-span-8 lg:grid-cols-3">
             <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-fresh-400">
+              <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-fresh-400">
                 Services
               </h3>
               <ul className="mt-4 space-y-2.5">
@@ -122,7 +121,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-fresh-400">
+              <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-fresh-400">
                 Company
               </h3>
               <ul className="mt-4 space-y-2.5">
@@ -139,7 +138,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-fresh-400">
+              <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-fresh-400">
                 Support
               </h3>
               <ul className="mt-4 space-y-2.5">

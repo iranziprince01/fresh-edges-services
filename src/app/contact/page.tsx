@@ -33,7 +33,7 @@ export default function ContactPage() {
             sizes="100vw"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-forest-600/90" aria-hidden />
+          <div className="absolute inset-0 bg-forest-600/85" aria-hidden />
         </div>
         <Container className="relative">
           <Breadcrumbs items={[{ label: "Contact" }]} variant="light" />

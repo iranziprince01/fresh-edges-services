@@ -24,9 +24,9 @@ export function Header() {
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 w-full border-b border-border/60 bg-white shadow-sm">
-      <div className="mx-auto flex h-[4.25rem] max-w-7xl min-w-0 items-center justify-between gap-2 px-3 sm:h-20 sm:gap-4 sm:px-6 lg:h-24 lg:gap-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl min-w-0 items-center justify-between gap-2 px-3 sm:h-[4.5rem] sm:gap-4 sm:px-6 lg:h-20 lg:gap-6 lg:px-8">
         <Link href="/" className="group min-w-0 shrink transition-opacity hover:opacity-90">
-          <Logo priority className="h-10 w-auto sm:h-14 md:h-16 lg:h-[4.5rem]" />
+          <Logo priority className="h-8 w-auto sm:h-10 md:h-11 lg:h-12" />
         </Link>
 
         <nav

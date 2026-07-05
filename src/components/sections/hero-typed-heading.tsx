@@ -3,13 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
-/** One word per line so typing always starts at the beginning of that line. */
-const HEADING_WORDS = [
-  { text: "Professional", className: "text-white" },
-  { text: "Property", className: "text-white" },
-  { text: "Services", className: "text-fresh-300" },
-  { text: "Built Around", className: "text-white" },
-  { text: "Reliability", className: "text-fresh-300" },
+type HeadingSegment = { text: string; className: string };
+type HeadingLine = { segments: readonly HeadingSegment[] };
+
+/** Each entry is one visual line; segments on the same line type in sequence. */
+const HEADING_LINES: readonly HeadingLine[] = [
+  { segments: [{ text: "Professional", className: "text-white" }] },
+  {
+    segments: [
+      { text: "Property", className: "text-white" },
+      { text: "Services", className: "text-fresh-300" },
+    ],
+  },
+  { segments: [{ text: "Built Around", className: "text-white" }] },
+  { segments: [{ text: "Reliability", className: "text-fresh-300" }] },
 ] as const;
 
 const START_DELAY_MS = 400;
@@ -18,20 +25,37 @@ const SPACE_DELAY_MS = 90;
 const LINE_PAUSE_MS = 320;
 const CURSOR_BLINK_MS = 530;
 
-type LineProgress = {
+type SegmentProgress = {
   visible: string;
   complete: boolean;
 };
 
+type LineProgress = {
+  segments: SegmentProgress[];
+  complete: boolean;
+};
+
 function emptyLines(): LineProgress[] {
-  return HEADING_WORDS.map(() => ({ visible: "", complete: false }));
+  return HEADING_LINES.map((line) => ({
+    segments: line.segments.map(() => ({ visible: "", complete: false })),
+    complete: false,
+  }));
 }
 
 function fullLines(): LineProgress[] {
-  return HEADING_WORDS.map((line) => ({
-    visible: line.text,
+  return HEADING_LINES.map((line) => ({
+    segments: line.segments.map((segment) => ({
+      visible: segment.text,
+      complete: true,
+    })),
     complete: true,
   }));
+}
+
+function fullTextFromLines() {
+  return HEADING_LINES.map((line) =>
+    line.segments.map((segment) => segment.text).join(" "),
+  ).join(" ");
 }
 
 export function HeroTypedHeading() {
@@ -42,6 +66,7 @@ export function HeroTypedHeading() {
   const [playKey, setPlayKey] = useState(0);
   const [lines, setLines] = useState<LineProgress[]>(emptyLines);
   const [activeLine, setActiveLine] = useState(0);
+  const [activeSegment, setActiveSegment] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   const [done, setDone] = useState(false);
 
@@ -86,6 +111,7 @@ export function HeroTypedHeading() {
 
     setLines(emptyLines());
     setActiveLine(0);
+    setActiveSegment(0);
     setDone(false);
     setShowCursor(true);
 
@@ -98,30 +124,68 @@ export function HeroTypedHeading() {
       await wait(START_DELAY_MS);
       if (cancelled) return;
 
-      for (let lineIndex = 0; lineIndex < HEADING_WORDS.length; lineIndex += 1) {
+      for (let lineIndex = 0; lineIndex < HEADING_LINES.length; lineIndex += 1) {
         if (cancelled) return;
         setActiveLine(lineIndex);
-        const fullText = HEADING_WORDS[lineIndex].text;
 
-        for (let charIndex = 1; charIndex <= fullText.length; charIndex += 1) {
+        const line = HEADING_LINES[lineIndex];
+
+        for (
+          let segmentIndex = 0;
+          segmentIndex < line.segments.length;
+          segmentIndex += 1
+        ) {
           if (cancelled) return;
-          const next = fullText.slice(0, charIndex);
+          setActiveSegment(segmentIndex);
+
+          const fullText = line.segments[segmentIndex].text;
+
+          for (let charIndex = 1; charIndex <= fullText.length; charIndex += 1) {
+            if (cancelled) return;
+            const next = fullText.slice(0, charIndex);
+            setLines((prev) =>
+              prev.map((entry, i) =>
+                i === lineIndex
+                  ? {
+                      ...entry,
+                      segments: entry.segments.map((segment, j) =>
+                        j === segmentIndex
+                          ? { visible: next, complete: false }
+                          : segment,
+                      ),
+                    }
+                  : entry,
+              ),
+            );
+            const typedChar = fullText[charIndex - 1];
+            await wait(typedChar === " " ? SPACE_DELAY_MS : CHAR_DELAY_MS);
+          }
+
           setLines((prev) =>
-            prev.map((line, i) =>
-              i === lineIndex ? { visible: next, complete: false } : line,
+            prev.map((entry, i) =>
+              i === lineIndex
+                ? {
+                    ...entry,
+                    segments: entry.segments.map((segment, j) =>
+                      j === segmentIndex ? { ...segment, complete: true } : segment,
+                    ),
+                  }
+                : entry,
             ),
           );
-          const typedChar = fullText[charIndex - 1];
-          await wait(typedChar === " " ? SPACE_DELAY_MS : CHAR_DELAY_MS);
+
+          if (segmentIndex < line.segments.length - 1) {
+            await wait(SPACE_DELAY_MS);
+          }
         }
 
         setLines((prev) =>
-          prev.map((line, i) =>
-            i === lineIndex ? { ...line, complete: true } : line,
+          prev.map((entry, i) =>
+            i === lineIndex ? { ...entry, complete: true } : entry,
           ),
         );
 
-        if (lineIndex < HEADING_WORDS.length - 1) {
+        if (lineIndex < HEADING_LINES.length - 1) {
           await wait(LINE_PAUSE_MS);
         }
       }
@@ -152,7 +216,7 @@ export function HeroTypedHeading() {
     return () => clearInterval(id);
   }, [reducedMotion, done]);
 
-  const fullText = HEADING_WORDS.map((line) => line.text).join(" ");
+  const fullText = fullTextFromLines();
 
   return (
     <h1
@@ -161,27 +225,41 @@ export function HeroTypedHeading() {
       aria-label={fullText}
     >
       <span aria-hidden className="flex flex-col">
-        {HEADING_WORDS.map((line, index) => {
-          const progress = lines[index];
-          const isActive = !done && activeLine === index;
+        {HEADING_LINES.map((line, lineIndex) => {
+          const progress = lines[lineIndex];
+          const isActiveLine = !done && activeLine === lineIndex;
 
           return (
             <span
-              key={`${line.text}-${index}`}
-              className={`block min-h-[1.05em] whitespace-nowrap ${line.className}`}
+              key={`line-${lineIndex}`}
+              className="block min-h-[1.05em] whitespace-nowrap"
             >
-              {/* Reserve the line even before typing starts on it */}
-              <span className="inline-block min-w-[1ch]">
-                {progress.visible || "\u00A0"}
-              </span>
-              {isActive ? (
-                <span
-                  className={`ml-0.5 inline-block w-[0.08em] translate-y-[0.06em] bg-fresh-300 align-baseline ${
-                    showCursor ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{ height: "0.85em" }}
-                />
-              ) : null}
+              {line.segments.map((segment, segmentIndex) => {
+                const segmentProgress = progress.segments[segmentIndex];
+                const isActiveSegment =
+                  isActiveLine && activeSegment === segmentIndex;
+                const showLeadingSpace =
+                  segmentIndex > 0 &&
+                  (segmentProgress.visible.length > 0 ||
+                    progress.segments[segmentIndex - 1]?.visible.length > 0);
+
+                return (
+                  <span key={`${segment.text}-${segmentIndex}`}>
+                    {showLeadingSpace ? " " : null}
+                    <span className={`inline-block min-w-[1ch] ${segment.className}`}>
+                      {segmentProgress.visible || "\u00A0"}
+                    </span>
+                    {isActiveSegment ? (
+                      <span
+                        className={`ml-0.5 inline-block w-[0.08em] translate-y-[0.06em] bg-fresh-300 align-baseline ${
+                          showCursor ? "opacity-100" : "opacity-0"
+                        }`}
+                        style={{ height: "0.85em" }}
+                      />
+                    ) : null}
+                  </span>
+                );
+              })}
             </span>
           );
         })}
