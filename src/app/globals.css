@@ -174,19 +174,19 @@
     @apply font-sans text-xs font-semibold uppercase tracking-[0.18em] text-forest-600 dark:text-fresh-400;
   }
   .section-heading {
-    @apply font-heading text-[1.65rem] font-bold leading-tight tracking-tight text-foreground sm:text-3xl sm:leading-snug md:text-4xl lg:text-[2.75rem] lg:leading-[1.15];
+    @apply min-w-0 text-balance break-words font-heading text-[1.5rem] font-bold leading-tight tracking-tight text-foreground min-[375px]:text-[1.65rem] sm:text-3xl sm:leading-snug md:text-4xl lg:text-[2.75rem] lg:leading-[1.15];
   }
   .page-hero {
     @apply py-16 sm:py-20 md:py-28 lg:py-32;
   }
   .page-title {
-    @apply max-w-3xl font-heading text-[1.75rem] font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl md:leading-[1.15];
+    @apply min-w-0 max-w-3xl text-balance break-words font-heading text-[1.5rem] font-semibold leading-tight tracking-tight text-white min-[375px]:text-[1.75rem] sm:text-4xl md:text-5xl md:leading-[1.15];
   }
   .content-stack {
     @apply mt-10 sm:mt-12 lg:mt-14;
   }
   .split-section {
-    @apply grid items-center gap-10 sm:gap-12 lg:gap-16 xl:gap-20;
+    @apply grid min-w-0 items-center gap-10 sm:gap-12 lg:gap-16 xl:gap-20;
   }
   .surface-card {
     @apply rounded-2xl border border-forest-200/80 bg-white shadow-[0_8px_24px_rgba(20,83,45,0.07)];

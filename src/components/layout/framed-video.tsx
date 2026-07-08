@@ -31,8 +31,8 @@ export function FramedVideo({
 
   const shadowPosition =
     shadowSide === "left"
-      ? "left-[5%] right-[2%] sm:left-[10%] sm:right-[5%] lg:left-[18%] lg:right-[-2%]"
-      : "right-[5%] left-[2%] sm:right-[10%] sm:left-[5%] lg:right-[18%] lg:left-[-2%]";
+      ? "left-[5%] right-[2%] sm:left-[10%] sm:right-[5%] lg:left-[18%] lg:right-0"
+      : "right-[5%] left-[2%] sm:right-[10%] sm:left-[5%] lg:right-[18%] lg:left-0";
 
   useEffect(() => {
     const video = videoRef.current;

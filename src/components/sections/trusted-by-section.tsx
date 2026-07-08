@@ -12,15 +12,15 @@ export function TrustedBySection() {
           description="We're working and had the opportunity to work with organizations that share our commitment to caring for people and strengthening our community."
         />
 
-        <ul className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-5 lg:gap-5">
+        <ul className="grid w-full min-w-0 grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4 md:grid-cols-5 lg:gap-5">
           {partners.map((partner) => (
-            <li key={partner.name}>
+            <li key={partner.name} className="min-w-0">
               <div
-                className="box-border flex h-[4.5rem] items-center justify-center rounded-xl border-solid border-forest-600 bg-white px-3 shadow-[0_6px_18px_rgba(20,83,45,0.1)] sm:h-24 sm:px-4"
+                className="box-border flex h-[4rem] items-center justify-center rounded-xl border-solid border-forest-600 bg-white px-2 shadow-[0_6px_18px_rgba(20,83,45,0.1)] sm:h-24 sm:px-4"
                 style={{ borderWidth: 2 }}
                 title={partner.name}
               >
-                <span className="font-heading text-center text-sm font-extrabold tracking-tight text-forest-700 sm:text-base md:text-[1.05rem]">
+                <span className="font-heading text-center text-[0.7rem] font-extrabold leading-tight tracking-tight text-forest-700 min-[375px]:text-xs sm:text-base md:text-[1.05rem]">
                   {partner.label}
                 </span>
                 <span className="sr-only">{partner.name}</span>

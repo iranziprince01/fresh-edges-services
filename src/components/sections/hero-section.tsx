@@ -33,11 +33,11 @@ export function HeroSection() {
                 {siteConfig.tagline}
               </p>
             </div>
-            <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 lg:justify-start">
+            <div className="flex w-full flex-col gap-3 md:flex-row md:items-center md:justify-center md:gap-4 lg:justify-start">
               <Button
                 asChild
                 size="lg"
-                className="h-12 w-full bg-white px-8 text-base font-semibold text-forest-600 hover:bg-white/90 sm:w-auto"
+                className="h-12 w-full bg-white px-8 text-base font-semibold text-forest-600 hover:bg-white/90 md:w-auto"
               >
                 <Link href="/quote">
                   Get Free Quote
@@ -48,7 +48,7 @@ export function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-12 w-full border-white/40 bg-transparent px-8 text-base font-semibold text-white hover:bg-white/10 hover:text-white sm:w-auto"
+                className="h-12 w-full border-white/40 bg-transparent px-8 text-base font-semibold text-white hover:bg-white/10 hover:text-white md:w-auto"
               >
                   <Link href="/services">View Services</Link>
               </Button>

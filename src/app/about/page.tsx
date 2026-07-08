@@ -214,8 +214,8 @@ export default function AboutPage() {
 
       <Section variant="muted">
         <Container>
-          <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_min(42%,440px)] lg:gap-16">
-            <div>
+          <div className="grid min-w-0 items-stretch gap-12 lg:grid-cols-[1fr_min(42%,440px)] lg:gap-16">
+            <div className="min-w-0">
               <SectionHeader
                 eyebrow="Service areas"
                 title="Serving cities across Alberta"
@@ -224,10 +224,10 @@ export default function AboutPage() {
                 spacing="tight"
                 className="max-w-none"
               />
-              <ul className="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4">
+              <ul className="mt-8 grid min-w-0 grid-cols-2 gap-2 sm:gap-2.5 sm:grid-cols-3 md:grid-cols-4">
                 {siteConfig.albertaCities.map((area) => (
                   <li key={area}>
-                    <span className="inline-flex w-full items-center gap-2 rounded-lg border border-forest-200/80 bg-white px-3 py-2.5 text-sm font-medium text-foreground shadow-[0_2px_8px_rgba(20,83,45,0.04)]">
+                    <span className="inline-flex w-full min-w-0 items-center gap-1.5 rounded-lg border border-forest-200/80 bg-white px-2 py-2 text-xs font-medium text-foreground shadow-[0_2px_8px_rgba(20,83,45,0.04)] sm:gap-2 sm:px-3 sm:py-2.5 sm:text-sm">
                       <MapPin className="h-3.5 w-3.5 shrink-0 text-forest-600" aria-hidden />
                       {area}
                     </span>

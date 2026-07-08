@@ -39,11 +39,11 @@ export function CtaSection({
               {description}
             </p>
 
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 md:flex-row md:items-center md:justify-center">
               <Button
                 asChild
                 size="lg"
-                className="h-12 w-full bg-white px-8 text-base font-semibold text-forest-600 hover:bg-white/90 sm:w-auto"
+                className="h-12 w-full bg-white px-8 text-base font-semibold text-forest-600 hover:bg-white/90 md:w-auto"
               >
                 <Link href="/quote">
                   {buttonLabel}
@@ -54,9 +54,9 @@ export function CtaSection({
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-12 w-full border-white/40 bg-transparent px-8 text-base font-semibold text-white hover:bg-white/10 hover:text-white sm:w-auto"
+                className="h-12 w-full border-white/40 bg-transparent px-8 text-base font-semibold text-white hover:bg-white/10 hover:text-white md:w-auto"
               >
-                <a href={siteConfig.phoneHref}>
+                <a href={siteConfig.phoneHref} className="break-all sm:break-normal">
                   <Phone className="mr-2 h-4 w-4" aria-hidden />
                   {siteConfig.phone}
                 </a>

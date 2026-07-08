@@ -3,6 +3,7 @@ import { Lato, Nunito } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { BackToTop } from "@/components/layout/back-to-top";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Toaster } from "@/components/ui/sonner";
 import { createMetadata } from "@/lib/seo";
@@ -81,10 +82,11 @@ export default function RootLayout({
             Skip to main content
           </a>
           <Header />
-          <main id="main-content" className="flex-1 pt-16 sm:pt-[4.5rem] lg:pt-20">
+          <main id="main-content" className="min-w-0 flex-1 pt-16 sm:pt-[4.5rem] lg:pt-20">
             {children}
           </main>
           <Footer />
+          <BackToTop />
           <Toaster position="top-right" richColors />
         </ThemeProvider>
       </body>

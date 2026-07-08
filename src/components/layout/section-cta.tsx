@@ -15,11 +15,11 @@ type SectionCtaProps = {
 
 const variantClasses = {
   primary:
-    "h-12 w-full bg-forest-600 px-8 font-semibold hover:bg-forest-700 sm:w-auto",
+    "h-12 w-full bg-forest-600 px-8 font-semibold hover:bg-forest-700 md:w-auto",
   outline:
-    "h-12 w-full border-forest-300 px-8 font-semibold text-forest-700 hover:bg-forest-50 sm:w-auto",
+    "h-12 w-full border-forest-300 px-8 font-semibold text-forest-700 hover:bg-forest-50 md:w-auto",
   light:
-    "h-12 w-full bg-white px-8 font-semibold text-forest-600 hover:bg-white/90 sm:w-auto",
+    "h-12 w-full bg-white px-8 font-semibold text-forest-600 hover:bg-white/90 md:w-auto",
 } as const;
 
 function CtaLink({
@@ -60,9 +60,9 @@ export function SectionCta({
   return (
     <div
       className={cn(
-        "mt-10 flex flex-col items-stretch gap-3 sm:mt-12 sm:flex-row sm:items-center",
-        align === "center" && "sm:justify-center",
-        align === "left" && "sm:justify-start",
+        "mt-10 flex flex-col items-stretch gap-3 sm:mt-12 md:flex-row md:items-center",
+        align === "center" && "md:justify-center",
+        align === "left" && "md:justify-start",
         className,
       )}
     >
@@ -79,7 +79,7 @@ export function SectionCta({
           variant="outline"
           className={
             variant === "light"
-              ? "h-12 w-full border-white/40 bg-transparent px-8 font-semibold text-white hover:bg-white/10 hover:text-white sm:w-auto"
+              ? "h-12 w-full border-white/40 bg-transparent px-8 font-semibold text-white hover:bg-white/10 hover:text-white md:w-auto"
               : variantClasses.outline
           }
         >

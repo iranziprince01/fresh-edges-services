@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       <Section>
-        <Container>
+        <Container className="overflow-x-clip">
           <div className="split-section lg:grid-cols-2">
             <div className="min-w-0">
               <SectionHeader

@@ -157,13 +157,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 lg:flex-row lg:items-end lg:justify-between">
-          <p className="shrink-0 text-sm text-white/50">
+        <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-4 lg:flex-row lg:items-start lg:justify-between">
+          <p className="min-w-0 shrink-0 text-sm leading-snug text-white/50 lg:max-w-[min(100%,20rem)] lg:pt-px">
             © {year} {siteConfig.name}. All rights reserved.
           </p>
           <LandAcknowledgement
             variant="footer"
-            className="w-full lg:max-w-none lg:text-right"
+            className="min-w-0 w-full lg:max-w-[min(100%,36rem)] lg:flex-1 lg:text-right"
           />
         </div>
       </Container>

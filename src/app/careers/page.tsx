@@ -150,7 +150,7 @@ export default function CareersPage() {
                 <p className="text-sm font-medium text-foreground">Resume submission</p>
                 <a
                   href={`mailto:${siteConfig.careersEmail}`}
-                  className="mt-2 inline-flex items-center justify-center gap-2 text-lg font-medium text-forest-600 transition-colors hover:text-forest-700 dark:text-fresh-400"
+                  className="mt-2 inline-flex min-w-0 max-w-full items-center justify-center gap-2 break-all text-base font-medium text-forest-600 transition-colors hover:text-forest-700 sm:text-lg sm:break-normal dark:text-fresh-400"
                 >
                   <Mail className="h-5 w-5 shrink-0" aria-hidden />
                   {siteConfig.careersEmail}

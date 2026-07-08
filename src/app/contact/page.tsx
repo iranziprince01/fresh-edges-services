@@ -80,7 +80,7 @@ export default function ContactPage() {
                       <p className="text-sm font-medium">Email</p>
                       <a
                         href={`mailto:${siteConfig.email}`}
-                        className="mt-1 flex items-center gap-2 text-muted-foreground hover:text-forest-600"
+                        className="mt-1 flex min-w-0 items-center gap-2 break-all text-muted-foreground hover:text-forest-600 sm:break-normal"
                       >
                         <Mail className="h-4 w-4 shrink-0" aria-hidden />
                         {siteConfig.email}
@@ -90,7 +90,7 @@ export default function ContactPage() {
                       <p className="text-sm font-medium">Careers</p>
                       <a
                         href={`mailto:${siteConfig.careersEmail}`}
-                        className="mt-1 flex items-center gap-2 text-muted-foreground hover:text-forest-600"
+                        className="mt-1 flex min-w-0 items-center gap-2 break-all text-muted-foreground hover:text-forest-600 sm:break-normal"
                       >
                         <Mail className="h-4 w-4 shrink-0" aria-hidden />
                         {siteConfig.careersEmail}

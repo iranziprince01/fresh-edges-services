@@ -221,7 +221,7 @@ export function HeroTypedHeading() {
   return (
     <h1
       ref={headingRef}
-      className="font-heading text-[2.15rem] font-black leading-[1.05] tracking-tight text-white min-[375px]:text-4xl sm:text-5xl sm:leading-[0.98] md:text-6xl lg:text-7xl xl:text-[5rem] xl:leading-[0.95]"
+      className="font-heading text-[1.9rem] font-black leading-[1.05] tracking-tight text-white min-[375px]:text-4xl sm:text-5xl sm:leading-[0.98] md:text-6xl lg:text-7xl xl:text-[5rem] xl:leading-[0.95]"
       aria-label={fullText}
     >
       <span aria-hidden className="flex flex-col">
@@ -232,7 +232,7 @@ export function HeroTypedHeading() {
           return (
             <span
               key={`line-${lineIndex}`}
-              className="block min-h-[1.05em] whitespace-nowrap"
+              className="block min-h-[1.05em] text-balance"
             >
               {line.segments.map((segment, segmentIndex) => {
                 const segmentProgress = progress.segments[segmentIndex];
