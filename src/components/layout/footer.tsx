@@ -4,6 +4,7 @@ import { FacebookIcon, InstagramIcon } from "@/components/icons/social-icons";
 import { Container } from "@/components/layout/container";
 import { Logo } from "@/components/layout/logo";
 import { footerPromise } from "@/data/company";
+import { LandAcknowledgement } from "@/components/layout/land-acknowledgement";
 import { serviceNavItems } from "@/data/services";
 import { siteConfig } from "@/lib/site";
 
@@ -30,7 +31,6 @@ const socialLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const locationLine = `${siteConfig.address.province}, ${siteConfig.address.country}`;
 
   return (
     <footer className="relative overflow-hidden border-t border-forest-700/50 bg-forest-600 text-white">
@@ -157,11 +157,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-sm text-white/50">
-            {siteConfig.name} © {year}
+        <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 lg:flex-row lg:items-end lg:justify-between">
+          <p className="shrink-0 text-sm text-white/50">
+            © {year} {siteConfig.name}. All rights reserved.
           </p>
-          <p className="text-center text-sm text-white/50 sm:text-right">{locationLine}</p>
+          <LandAcknowledgement
+            variant="footer"
+            className="w-full lg:max-w-none lg:text-right"
+          />
         </div>
       </Container>
     </footer>

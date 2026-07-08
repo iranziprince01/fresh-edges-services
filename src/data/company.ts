@@ -103,3 +103,10 @@ export const whyJoinFreshEdges = [
 
 export const footerPromise =
   "We are committed to delivering dependable service, professional care, and building stronger communities through work that makes everyday spaces cleaner, safer, and better for everyone.";
+
+export const landAcknowledgementLines = [
+  "Fresh Edges Services Ltd respectfully acknowledges that we operate on",
+  "Treaty 6 Territory, the traditional and ancestral lands of First Nations and Métis peoples.",
+] as const;
+
+export const landAcknowledgement = landAcknowledgementLines.join(" ");

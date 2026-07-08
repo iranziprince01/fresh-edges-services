@@ -10,6 +10,7 @@ import { Section } from "@/components/layout/section";
 import { SectionHeader } from "@/components/layout/section-header";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { SectionCta } from "@/components/layout/section-cta";
+import { LandAcknowledgement } from "@/components/layout/land-acknowledgement";
 import { BackgroundVideo } from "@/components/sections/background-video";
 import { CtaSection } from "@/components/sections/cta-section";
 import { FaqAccordion } from "@/components/sections/faq-accordion";
@@ -240,6 +241,7 @@ export default function AboutPage() {
                 </Link>
                 .
               </p>
+              <LandAcknowledgement variant="section" className="mt-8" />
               <SectionCta
                 label="Book Service"
                 align="left"
