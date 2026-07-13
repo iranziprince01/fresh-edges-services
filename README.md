@@ -4,7 +4,7 @@ Production-ready marketing website for Fresh Edges Services Ltd — a premium pr
 
 ## Tech Stack
 
-- **Next.js 16** (App Router)
+- **Next.js 16**
 - **TypeScript**
 - **Tailwind CSS v4**
 - **Framer Motion**
